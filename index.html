@@ -1,74 +1,900 @@
-                Explore Infrastructure →
-            </a>
 
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Hamza IT Learning | Technology Knowledge Hub</title>
 
-        <!-- Microsoft 365 -->
+<meta name="description" content="Hamza IT Learning - Professional IT learning resources for Oracle, Cloud, AI, Cybersecurity, Networking and DevOps.">
 
-        <div class="card">
+<style>
+:root {
+  --red: #C74634;
+  --red-dark: #A93425;
+  --dark: #252525;
+  --text: #505966;
+  --muted: #737D89;
+  --bg: #F5F6F8;
+  --white: #FFFFFF;
+  --border: #E4E7EC;
+}
 
-            <div class="icon">
-                🟦
-            </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-            <h3>Microsoft 365</h3>
+html {
+  scroll-behavior: smooth;
+}
 
-            <p>
-                Microsoft Entra, Exchange,
-                Microsoft Defender, Intune,
-                Microsoft Purview and Microsoft 365.
-            </p>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
 
-            <a href="#">
-                Explore Microsoft 365 →
-            </a>
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-        </div>
+/* HEADER */
 
+header {
+  height: 78px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+}
 
-        <!-- DevOps -->
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 
-        <div class="card">
+.brand span {
+  color: var(--dark);
+}
 
-            <div class="icon">
-                ⚙️
-            </div>
+.brand b {
+  color: var(--red);
+}
 
-            <h3>DevOps</h3>
+.brand svg {
+  width: 45px;
+  height: 45px;
+}
 
-            <p>
-                Azure DevOps, Git, Repositories,
-                CI/CD, Pipelines, DEV, TEST,
-                QA and Production environments.
-            </p>
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
 
-            <a href="#">
-                Explore DevOps →
-            </a>
+nav a {
+  color: #424B56;
+  font-size: 14px;
+  font-weight: 600;
+  transition: .3s;
+}
 
-        </div>
+nav a:hover {
+  color: var(--red);
+}
 
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--dark);
+}
 
+/* HERO */
+
+.hero {
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  padding: 90px 7%;
+  background:
+    radial-gradient(circle at 85% 30%, #FBE9E5, transparent 34%),
+    linear-gradient(120deg, #FFFFFF, #F3F5F8);
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.eyebrow {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5.5vw, 66px);
+  line-height: 1.15;
+  margin: 23px 0;
+  font-weight: 750;
+  color: #252525;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  max-width: 600px;
+  color: var(--text);
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--red-dark);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: white;
+  color: var(--red);
+  border: 1px solid var(--red);
+  margin-left: 10px;
+}
+
+.btn-outline:hover {
+  background: #FCEDEA;
+  color: var(--red-dark);
+}
+
+/* SECTIONS */
+
+section {
+  padding: 80px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.section-title p {
+  color: var(--muted);
+}
+
+/* SEARCH */
+
+.search {
+  max-width: 570px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  height: 54px;
+  border: 1px solid #D9DEE5;
+  background: white;
+  border-radius: 7px;
+  padding: 0 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+.search input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px #C7463418;
+}
+
+/* COURSES */
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.course {
+  background: white;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: .3s;
+  box-shadow: 0 3px 12px rgba(0,0,0,.035);
+}
+
+.course:hover {
+  transform: translateY(-6px);
+  border-color: #D99B91;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+}
+
+.course-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FCEDEA;
+  border-radius: 10px;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.course h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.course p {
+  color: var(--text);
+  font-size: 14px;
+  min-height: 68px;
+}
+
+.course-link {
+  display: inline-block;
+  color: var(--red);
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.course-link:hover {
+  color: var(--red-dark);
+}
+
+.no-results {
+  display: none;
+  text-align: center;
+  color: var(--muted);
+  padding: 30px;
+}
+
+/* ABOUT */
+
+.about {
+  background: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.about p {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature {
+  background: #F7F8FA;
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 9px;
+}
+
+.feature strong {
+  display: block;
+  color: var(--red);
+  font-size: 23px;
+  margin-bottom: 6px;
+}
+
+/* CONTACT */
+
+.cta {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 65px 25px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  color: var(--text);
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border);
+  padding: 30px 7%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong {
+  color: var(--red);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 950px) {
+  .courses {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 650px) {
+  header {
+    padding: 0 5%;
+  }
+
+  .brand {
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .brand svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 7%;
+    gap: 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.08);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .hero {
+    padding: 75px 6%;
+    min-height: 450px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+
+  .courses {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-outline {
+    margin: 12px 0 0;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+}
+
+@media(max-width: 380px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+  <a class="brand" href="index.html">
+
+    <svg viewBox="0 0 48 48"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+
+      <rect width="48" height="48" rx="10"
+            fill="#C74634"/>
+
+      <path d="M11 13H37V18H11V13Z" fill="white"/>
+      <path d="M11 22H30V27H11V22Z" fill="white"/>
+      <path d="M11 31H25V36H11V31Z" fill="white"/>
+
+      <circle cx="35" cy="33.5" r="5"
+              fill="#F8C9BE"/>
+
+    </svg>
+
+    <span>Hamza <b>IT Learning</b></span>
+
+  </a>
+
+  <button class="menu-btn"
+          onclick="toggleMenu()"
+          aria-label="Open menu">
+    ☰
+  </button>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#courses">Learning Paths</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      WELCOME TO HAMZA IT LEARNING
     </div>
+
+    <h1>
+      Upgrade Your Skills.<br>
+      Build Your <span>Future.</span>
+    </h1>
+
+    <p>
+      Explore professional learning paths in IT,
+      Oracle, Artificial Intelligence, Cloud Computing,
+      Cybersecurity and modern enterprise technology.
+    </p>
+
+    <a href="#courses" class="btn">
+      Explore Courses
+    </a>
+
+    <a href="#about" class="btn btn-outline">
+      Learn More
+    </a>
+
+  </div>
 
 </section>
 
+<!-- LEARNING PATHS -->
 
-<!-- =========================
-     FOOTER
-========================= -->
+<section id="courses">
+
+  <div class="section-title">
+
+    <div class="eyebrow">LEARNING PATHS</div>
+
+    <h2>Explore IT Technologies</h2>
+
+    <p>
+      Practical notes, concepts and learning resources
+      across enterprise IT technologies.
+    </p>
+
+  </div>
+
+  <div class="search">
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search IT technologies..."
+      oninput="filterCourses()"
+      aria-label="Search learning paths">
+
+  </div>
+
+  <div class="courses" id="courseList">
+
+    <!-- NETWORKING -->
+
+    <article class="course" data-search="networking dns dhcp vlan routing vpn nat">
+
+      <div class="course-icon">🌐</div>
+
+      <h3>Networking</h3>
+
+      <p>
+        DNS, DHCP, VLAN, Routing, NAT, VPN
+        and networking fundamentals.
+      </p>
+
+      <a class="course-link" href="networking.html">
+        Explore Networking →
+      </a>
+
+    </article>
+
+    <!-- CLOUD -->
+
+    <article class="course" data-search="cloud computing iaas paas saas architecture">
+
+      <div class="course-icon">☁️</div>
+
+      <h3>Cloud Computing</h3>
+
+      <p>
+        IaaS, PaaS, SaaS, scalability,
+        availability and cloud architecture.
+      </p>
+
+      <a class="course-link" href="cloud.html">
+        Explore Cloud →
+      </a>
+
+    </article>
+
+    <!-- CYBERSECURITY -->
+
+    <article class="course" data-search="cybersecurity security firewall zero trust soc">
+
+      <div class="course-icon">🔐</div>
+
+      <h3>Cybersecurity</h3>
+
+      <p>
+        Identity, Zero Trust, firewalls,
+        endpoint security and security operations.
+      </p>
+
+      <a class="course-link" href="cybersecurity.html">
+        Explore Security →
+      </a>
+
+    </article>
+
+    <!-- AZURE -->
+
+    <article class="course" data-search="microsoft azure cloud vm storage backup">
+
+      <div class="course-icon">☁️</div>
+
+      <h3>Microsoft Azure</h3>
+
+      <p>
+        Virtual Machines, networking,
+        storage, backup and cost management.
+      </p>
+
+      <a class="course-link" href="azure.html">
+        Explore Azure →
+      </a>
+
+    </article>
+
+    <!-- DATABASES -->
+
+    <article class="course" data-search="database sql server oracle postgresql administration">
+
+      <div class="course-icon">🗄️</div>
+
+      <h3>Databases</h3>
+
+      <p>
+        SQL Server, database administration,
+        backup, recovery and performance.
+      </p>
+
+      <a class="course-link" href="databases.html">
+        Explore Databases →
+      </a>
+
+    </article>
+
+    <!-- ORACLE -->
+
+    <article class="course" data-search="oracle fusion ebs scm opm inventory purchasing">
+
+      <div class="course-icon">🏢</div>
+
+      <h3>Oracle Technologies</h3>
+
+      <p>
+        Oracle EBS, Fusion Cloud, SCM,
+        OPM, Inventory and Purchasing.
+      </p>
+
+      <a class="course-link" href="oracle.html">
+        Explore Oracle →
+      </a>
+
+    </article>
+
+    <!-- AI -->
+
+    <article class="course" data-search="artificial intelligence ai generative ai llm machine learning">
+
+      <div class="course-icon">🤖</div>
+
+      <h3>Artificial Intelligence</h3>
+
+      <p>
+        Generative AI, LLMs, Machine Learning
+        and intelligent automation.
+      </p>
+
+      <a class="course-link" href="ai.html">
+        Explore AI →
+      </a>
+
+    </article>
+
+    <!-- DEVOPS -->
+
+    <article class="course" data-search="devops docker kubernetes cicd automation">
+
+      <div class="course-icon">⚙️</div>
+
+      <h3>DevOps & Kubernetes</h3>
+
+      <p>
+        Docker, Kubernetes, CI/CD,
+        monitoring and automation.
+      </p>
+
+      <a class="course-link" href="devops.html">
+        Explore DevOps →
+      </a>
+
+    </article>
+
+    <!-- IT MANAGEMENT -->
+
+    <article class="course" data-search="it management itil governance leadership service management">
+
+      <div class="course-icon">📊</div>
+
+      <h3>IT Management</h3>
+
+      <p>
+        ITIL, IT Governance, service management
+        and technology leadership.
+      </p>
+
+      <a class="course-link" href="it-management.html">
+        Explore Management →
+      </a>
+
+    </article>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    No matching learning paths found.
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="about-grid">
+
+    <div>
+
+      <div class="eyebrow">ABOUT THE PLATFORM</div>
+
+      <h2>
+        Learn Today.<br>
+        Lead Tomorrow.
+      </h2>
+
+      <p>
+        Hamza IT Learning is a professional technology
+        knowledge hub designed to organize and simplify
+        learning across enterprise IT disciplines.
+      </p>
+
+      <p>
+        Our goal is to share practical knowledge,
+        technical concepts and real-world IT experience
+        to support continuous professional development.
+      </p>
+
+      <a href="#courses" class="btn">
+        Start Exploring
+      </a>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <strong>01</strong>
+        Structured Learning
+      </div>
+
+      <div class="feature">
+        <strong>02</strong>
+        Practical Knowledge
+      </div>
+
+      <div class="feature">
+        <strong>03</strong>
+        Enterprise Technology
+      </div>
+
+      <div class="feature">
+        <strong>04</strong>
+        Career Development
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="cta">
+
+    <h2>Ready to Expand Your Knowledge?</h2>
+
+    <p>
+      Discover new technologies and build your
+      professional IT skills.
+    </p>
+
+    <a href="#courses" class="btn">
+      Explore Learning Paths
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
 
 <footer>
 
-    <strong>Hamza IT Knowledge Hub</strong>
+  <p>
+    © 2026 <strong>Hamza IT Learning</strong>.
+    All Rights Reserved.
+  </p>
 
-    <br><br>
-
-    Infrastructure • Cloud • Cybersecurity • Databases • Oracle • DevOps
+  <p>Technology • Knowledge • Innovation</p>
 
 </footer>
 
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleMenu() {
+
+  document.getElementById("nav")
+    .classList.toggle("open");
+
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    document.getElementById("nav")
+      .classList.remove("open");
+
+  });
+
+});
+
+function filterCourses() {
+
+  const input = document
+    .getElementById("searchInput")
+    .value.toLowerCase()
+    .trim();
+
+  const cards = document
+    .querySelectorAll(".course");
+
+  let visible = 0;
+
+  cards.forEach(card => {
+
+    const keywords = card.dataset.search.toLowerCase();
+
+    const content = card.innerText.toLowerCase();
+
+    const match =
+      keywords.includes(input) ||
+      content.includes(input);
+
+    card.style.display = match ? "" : "none";
+
+    if (match) visible++;
+
+  });
+
+  document.getElementById("noResults").style.display =
+    visible === 0 ? "block" : "none";
+
+}
+
+</script>
 
 </body>
 </html>
