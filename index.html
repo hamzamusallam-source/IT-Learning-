@@ -4,7 +4,461 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hamza IT Learning | Technology Knowledge Hub</title>
-<!-- يمكنك نسخ الكود الكامل للصفحة من المستندات المرجعية لتطبيق التصميم والهيكل المتكامل مع الأيقونات المدمجة -->
+<meta name="description" content="Hamza IT Learning - Professional IT learning resources for Oracle, Cloud, AI, Cybersecurity, Networking and DevOps.">
+
+<style>
+:root {
+  --red: #C74634;
+  --red-dark: #A93425;
+  --dark: #252525;
+  --text: #505966;
+  --muted: #737D89;
+  --bg: #F5F6F8;
+  --white: #FFFFFF;
+  --border: #E4E7EC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+header {
+  height: 78px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.brand span { color: var(--dark); }
+.brand b { color: var(--red); }
+.brand svg { width: 42px; height: 42px; }
+
+nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  color: #424B56;
+  font-size: 14px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--red); }
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+/* HERO */
+.hero {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  padding: 90px 7%;
+  background:
+    radial-gradient(circle at 85% 30%, #FBE9E5, transparent 34%),
+    linear-gradient(120deg, #FFFFFF, #F3F5F8);
+}
+
+.hero-content { max-width: 760px; }
+
+.eyebrow {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.15;
+  margin: 20px 0;
+  font-weight: 800;
+  color: #252525;
+}
+
+.hero h1 span { color: var(--red); }
+
+.hero p {
+  max-width: 600px;
+  color: var(--text);
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: white;
+  color: var(--red);
+  border: 1px solid var(--red);
+  margin-left: 10px;
+}
+
+.btn-outline:hover {
+  background: #FCEDEA;
+  color: var(--red-dark);
+}
+
+/* SECTIONS */
+section { padding: 80px 7%; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin: 8px 0 10px;
+  color: var(--dark);
+}
+
+.section-title p { color: var(--muted); }
+
+/* SEARCH */
+.search {
+  max-width: 570px;
+  margin: 0 auto 45px;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #D9DEE5;
+  background: white;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+}
+
+.search input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(199, 70, 52, 0.12);
+}
+
+/* COURSES GRID */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.course {
+  background: white;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: .3s;
+  box-shadow: 0 3px 12px rgba(0,0,0,.03);
+}
+
+.course:hover {
+  transform: translateY(-5px);
+  border-color: #D99B91;
+  box-shadow: 0 12px 26px rgba(0,0,0,.07);
+}
+
+/* NATURAL VECTOR ICONS */
+.course-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FCEDEA;
+  color: var(--red);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.course-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.course h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.course p {
+  color: var(--text);
+  font-size: 14px;
+  min-height: 66px;
+}
+
+.course-link {
+  display: inline-block;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.course-link:hover { color: var(--red-dark); }
+
+.no-results {
+  display: none;
+  text-align: center;
+  color: var(--muted);
+  padding: 30px;
+  font-size: 16px;
+}
+
+/* ABOUT */
+.about { background: white; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about h2 {
+  font-size: 34px;
+  margin: 12px 0;
+}
+
+.about p {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature {
+  background: #F7F8FA;
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.feature strong {
+  display: block;
+  color: var(--red);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+/* CONTACT CTA */
+.cta {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 60px 25px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cta h2 { font-size: 30px; margin-bottom: 12px; }
+.cta p { color: var(--text); margin-bottom: 25px; }
+
+/* FOOTER */
+footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border);
+  padding: 30px 7%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong { color: var(--red); }
+
+/* RESPONSIVE */
+@media(max-width: 950px) {
+  .courses { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media(max-width: 650px) {
+  header { padding: 0 5%; }
+  .brand { font-size: 18px; gap: 8px; }
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 7%;
+    gap: 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.08);
+  }
+  nav.open { display: flex; }
+  .hero { padding: 75px 6%; min-height: 440px; }
+  .courses { grid-template-columns: 1fr; }
+  .btn-outline { margin: 12px 0 0; }
+}
+</style>
 </head>
-<!-- تم تضمين هيكل HTML و CSS و JavaScript الكامل للمنصة (يشمل القائمة العلوية، قسم الواجهة الرئيسية، مسارات التعلم مثل الشبكات والحوسبة السحابية والأمن السيبراني والذكاء الاصطناعي، وقسم "من نحن" وتشكيلة التذييل) -->
-</html>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://w3.org">
+      <rect width="48" height="48" rx="10" fill="#C74634"/>
+      <path d="M11 13H37V18H11V13Z" fill="white"/>
+      <path d="M11 22H30V27H11V22Z" fill="white"/>
+      <path d="M11 31H25V36H11V31Z" fill="white"/>
+      <circle cx="35" cy="33.5" r="5" fill="#F8C9BE"/>
+    </svg>
+    <span>Hamza <b>IT Learning</b></span>
+  </a>
+
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#courses">Learning Paths</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">WELCOME TO HAMZA IT LEARNING</div>
+    <h1>Upgrade Your Skills.<br>Build Your <span>Future.</span></h1>
+    <p>
+      Explore professional learning paths in IT Infrastructure, Oracle Enterprise Systems, Cybersecurity, Cloud Computing, and modern enterprise technology.
+    </p>
+    <a href="#courses" class="btn">Explore Courses</a>
+    <a href="#about" class="btn btn-outline">Learn More</a>
+  </div>
+</section>
+
+<!-- LEARNING PATHS -->
+<section id="courses">
+  <div class="section-title">
+    <div class="eyebrow">LEARNING PATHS</div>
+    <h2>Explore IT Technologies</h2>
+    <p>Practical notes, concepts and learning resources across enterprise IT technologies.</p>
+  </div>
+
+  <div class="search">
+    <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search IT, Oracle, Cybersecurity, Cloud...">
+  </div>
+
+  <div class="courses" id="coursesGrid">
+
+    <!-- 1. IT Infrastructure & Networking -->
+    <div class="course">
+      <div class="course-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      </div>
+      <h3>IT &amp; Networking</h3>
+      <p>IT infrastructure, DNS, DHCP, VLAN, Routing, NAT, VPN and enterprise networking fundamentals.</p>
+      <a href="#courses" class="course-link">Explore IT &amp; Networking →</a>
+    </div>
+
+    <!-- 2. Cybersecurity -->
+    <div class="course">
+      <div class="course-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <h3>Cybersecurity</h3>
+      <p>Identity &amp; Access Management, Zero Trust, firewalls, endpoint security and SOC operations.</p>
+      <a href="#courses" class="course-link">Explore Security →</a>
+    </div>
+
+    <!-- 3. Oracle Technologies -->
+    <div class="course">
+      <div class="course-icon">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <h3>Oracle Technologies</h3>
+      <p>Oracle EBS, Oracle Fusion Cloud, SCM, OPM, Inventory, Purchasing and ERP administration.</p>
+      <a href="#courses" class="course-link">Explore Oracle →</a>
+    </div>
+
+    <!-- 4. Cloud Computing -->
+    <div class="course">
+      <div class="course-icon">
+        <svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+      </div>
+      <h3>Cloud Computing</h3>
+      <p>IaaS, PaaS, SaaS, high availability, scalability and modern enterprise cloud architecture.</p>
+      <a href="#courses" class="course-link">Explore Cloud →</a>
+    </div>
+
