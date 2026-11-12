@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+<title>Oracle | Hamza IT Learning</title>
+ 
+<link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+ 
+<header>
+<h1>🔴 Oracle</h1>
+<p>Oracle On-Premise & Fusion Cloud Learning</p>
+</header>
+ 
+<nav>
+<a href="index.html">Home</a>
+<a href="networking.html">Networking</a>
+<a href="cloud.html">Cloud</a>
+<a href="cybersecurity.html">Cybersecurity</a>
+<a href="azure.html">Azure</a>
+<a href="database.html">Database</a>
+<a href="oracle.html">Oracle</a>
+</nav>
+ 
+<main>
+ 
+<h2>🏢 Oracle On-Premise</h2>
+ 
+<ul>
+<li>Oracle E-Business Suite (EBS)</li>
+<li>Oracle Database</li>
+<li>Oracle SCM</li>
+<li>Purchasing</li>
+<li>Inventory</li>
+<li>Receiving</li>
+<li>SQL & PL/SQL</li>
+<li>Concurrent Programs</li>
+<li>Users & Responsibilities</li>
+<li>Administration & Troubleshooting</li>
+<li>Backup & Recovery</li>
+<li>Deployment & Patching</li>
+</ul>
+ 
+ 
+<h2>☁️ Oracle Fusion Cloud</h2>
+ 
+<ul>
+<li>Oracle Fusion Cloud Applications</li>
+<li>Fusion SCM</li>
+<li>Procurement</li>
+<li>Inventory Management</li>
+<li>Receiving</li>
+<li>Order Management</li>
+<li>Users & Roles</li>
+<li>Approval Workflows</li>
+<li>Reporting</li>
+<li>Integrations</li>
+<li>ESS Jobs</li>
+</ul>
+ 
+ 
+<a class="back" href="index.html">
+← Back to Home
+</a>
+ 
+</main>
+ 
+<footer>
+© Hamza IT Learning
+</footer>
+ 
+</body>
+ 
+</html>
