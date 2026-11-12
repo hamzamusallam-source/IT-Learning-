@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
  
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
  
 <title>Hamza IT Learning</title>
  
@@ -12,55 +12,605 @@
  
 <body>
  
-<header>
+<header class="hero">
+ 
+<div class="hero-content">
+<span class="badge">IT KNOWLEDGE HUB</span>
+ 
 <h1>Hamza IT Learning</h1>
-<p>My Information Technology Learning Journey</p>
+ 
+<p>
+Infrastructure • Cloud • Cybersecurity • Databases • Oracle
+</p>
+</div>
+ 
 </header>
  
-<main>
  
-<h2>IT Topics</h2>
+<main class="container">
+ 
+<div class="section-title">
+ 
+<p class="small-title">LEARNING PATHS</p>
+ 
+<h2>Explore IT Technologies</h2>
+ 
+<p>
+Practical notes, concepts and learning resources
+across enterprise IT technologies.
+</p>
+ 
+</div>
+ 
  
 <div class="cards">
  
-<a class="card" href="networking.html">
-<h2>🌐 Networking</h2>
-<p>Open learning topics →</p>
+<!-- Networking -->
+ 
+<a class="card networking" href="networking.html">
+ 
+<div class="icon">🌐</div>
+ 
+<div class="card-content">
+<h2>Networking</h2>
+ 
+<p>
+Networking fundamentals, DNS, DHCP,
+VLAN, routing, NAT and VPN.
+</p>
+ 
+<span>Explore Networking →</span>
+</div>
+ 
 </a>
  
-<a class="card" href="cloud.html">
-<h2>☁️ Cloud Computing</h2>
-<p>Open learning topics →</p>
+ 
+<!-- Cloud -->
+ 
+<a class="card cloud" href="cloud.html">
+ 
+<div class="icon">☁️</div>
+ 
+<div class="card-content">
+<h2>Cloud Computing</h2>
+ 
+<p>
+Cloud concepts, IaaS, PaaS, SaaS,
+scalability and high availability.
+</p>
+ 
+<span>Explore Cloud →</span>
+</div>
+ 
 </a>
  
-<a class="card" href="cybersecurity.html">
-<h2>🔐 Cybersecurity</h2>
-<p>Open learning topics →</p>
+ 
+<!-- Cybersecurity -->
+ 
+<a class="card security" href="cybersecurity.html">
+ 
+<div class="icon">🔐</div>
+ 
+<div class="card-content">
+<h2>Cybersecurity</h2>
+ 
+<p>
+Identity, Zero Trust, endpoint security,
+firewalls and security operations.
+</p>
+ 
+<span>Explore Security →</span>
+</div>
+ 
 </a>
  
-<a class="card" href="azure.html">
-<h2>☁️ Microsoft Azure</h2>
-<p>Open learning topics →</p>
+ 
+<!-- Microsoft Azure -->
+ 
+<a class="card azure" href="azure.html">
+ 
+<div class="icon">☁️</div>
+ 
+<div class="card-content">
+<h2>Microsoft Azure</h2>
+ 
+<p>
+Azure infrastructure, virtual machines,
+networking, storage and cost management.
+</p>
+ 
+<span>Explore Azure →</span>
+</div>
+ 
 </a>
  
-<a class="card" href="database.html">
-<h2>🗄️ Database</h2>
-<p>Open learning topics →</p>
+ 
+<!-- Database -->
+ 
+<a class="card database" href="database.html">
+ 
+<div class="icon">🗄️</div>
+ 
+<div class="card-content">
+<h2>Databases</h2>
+ 
+<p>
+SQL Server, database concepts,
+backup, recovery and performance.
+</p>
+ 
+<span>Explore Databases →</span>
+</div>
+ 
 </a>
  
-<a class="card" href="oracle.html">
-<h2>🔴 Oracle</h2>
-<p>On-Premise & Fusion Cloud →</p>
+ 
+<!-- Oracle -->
+ 
+<a class="card oracle" href="oracle.html">
+ 
+<div class="icon oracle-icon">O</div>
+ 
+<div class="card-content">
+<h2>Oracle</h2>
+ 
+<p>
+Oracle EBS, Oracle Database,
+SCM and Fusion Cloud Applications.
+</p>
+ 
+<span>On-Premise & Fusion Cloud →</span>
+</div>
+ 
 </a>
  
 </div>
  
 </main>
  
+ 
+<section class="about">
+ 
+<div class="about-content">
+ 
+<p class="small-title">ABOUT</p>
+ 
+<h2>Building IT Knowledge Through Practice</h2>
+ 
+<p>
+A personal technology knowledge hub documenting
+practical concepts and experience across
+infrastructure, cloud, cybersecurity,
+databases and enterprise applications.
+</p>
+ 
+</div>
+ 
+</section>
+ 
+ 
 <footer>
-© Hamza IT Learning
+ 
+<p>© 2026 Hamza IT Learning</p>
+ 
+<p class="footer-small">
+Information Technology Knowledge Hub
+</p>
+ 
 </footer>
  
 </body>
+ 
 </html>
-ثم
+2. استبدل style.css بالكامل
+CSS
+/* ================================
+Hamza IT Learning
+Professional Portal Design
+================================ */
+ 
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+ 
+ 
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+Roboto, Arial, sans-serif;
+ 
+background: #f6f7f9;
+color: #1e293b;
+ 
+line-height: 1.6;
+}
+ 
+ 
+/* ================================
+HERO
+================================ */
+ 
+.hero {
+ 
+background:
+linear-gradient(
+135deg,
+#111827,
+#1e293b
+);
+ 
+color: white;
+ 
+padding: 85px 20px;
+ 
+text-align: center;
+ 
+border-bottom: 4px solid #f80000;
+}
+ 
+ 
+.hero-content {
+ 
+max-width: 900px;
+margin: auto;
+}
+ 
+ 
+.badge {
+ 
+display: inline-block;
+ 
+background: rgba(255,255,255,0.1);
+ 
+border: 1px solid rgba(255,255,255,0.2);
+ 
+padding: 7px 15px;
+ 
+border-radius: 20px;
+ 
+font-size: 12px;
+ 
+letter-spacing: 2px;
+ 
+margin-bottom: 20px;
+}
+ 
+ 
+.hero h1 {
+ 
+font-size: 48px;
+ 
+margin-bottom: 10px;
+ 
+font-weight: 700;
+}
+ 
+ 
+.hero p {
+ 
+color: #cbd5e1;
+ 
+font-size: 17px;
+}
+ 
+ 
+/* ================================
+MAIN CONTAINER
+================================ */
+ 
+.container {
+ 
+max-width: 1200px;
+ 
+margin: auto;
+ 
+padding: 70px 25px;
+}
+ 
+ 
+.section-title {
+ 
+text-align: center;
+ 
+max-width: 700px;
+ 
+margin: auto auto 45px;
+}
+ 
+ 
+.small-title {
+ 
+color: #e00000;
+ 
+font-weight: 700;
+ 
+font-size: 12px;
+ 
+letter-spacing: 2px;
+ 
+margin-bottom: 8px;
+}
+ 
+ 
+.section-title h2 {
+ 
+font-size: 34px;
+ 
+margin-bottom: 10px;
+}
+ 
+ 
+.section-title p {
+ 
+color: #64748b;
+}
+ 
+ 
+/* ================================
+CARDS
+================================ */
+ 
+.cards {
+ 
+display: grid;
+ 
+grid-template-columns:
+repeat(3, 1fr);
+ 
+gap: 25px;
+}
+ 
+ 
+.card {
+ 
+background: white;
+ 
+border-radius: 12px;
+ 
+padding: 30px;
+ 
+text-decoration: none;
+ 
+color: #1e293b;
+ 
+min-height: 240px;
+ 
+border: 1px solid #e5e7eb;
+ 
+box-shadow:
+0 4px 15px rgba(0,0,0,0.04);
+ 
+transition:
+transform 0.25s ease,
+box-shadow 0.25s ease,
+border 0.25s ease;
+ 
+position: relative;
+}
+ 
+ 
+.card:hover {
+ 
+transform: translateY(-7px);
+ 
+box-shadow:
+0 15px 35px rgba(0,0,0,0.10);
+}
+ 
+ 
+.icon {
+ 
+font-size: 35px;
+ 
+margin-bottom: 22px;
+ 
+height: 50px;
+}
+ 
+ 
+.card h2 {
+ 
+font-size: 22px;
+ 
+margin-bottom: 12px;
+}
+ 
+ 
+.card p {
+ 
+color: #64748b;
+ 
+font-size: 14px;
+ 
+margin-bottom: 25px;
+}
+ 
+ 
+.card span {
+ 
+color: #2563eb;
+ 
+font-size: 14px;
+ 
+font-weight: 600;
+}
+ 
+ 
+/* ================================
+INDIVIDUAL TECHNOLOGY COLORS
+================================ */
+ 
+.networking:hover {
+ 
+border-top: 4px solid #0ea5e9;
+}
+ 
+ 
+.cloud:hover {
+ 
+border-top: 4px solid #6366f1;
+}
+ 
+ 
+.security:hover {
+ 
+border-top: 4px solid #16a34a;
+}
+ 
+ 
+.azure:hover {
+ 
+border-top: 4px solid #0078d4;
+}
+ 
+ 
+.database:hover {
+ 
+border-top: 4px solid #7c3aed;
+}
+ 
+ 
+.oracle:hover {
+ 
+border-top: 4px solid #f80000;
+}
+ 
+ 
+.oracle span {
+ 
+color: #e00000;
+}
+ 
+ 
+/* Oracle Style Icon */
+ 
+.oracle-icon {
+ 
+width: 48px;
+ 
+height: 48px;
+ 
+border-radius: 50%;
+ 
+background: #f80000;
+ 
+color: white;
+ 
+display: flex;
+ 
+align-items: center;
+ 
+justify-content: center;
+ 
+font-weight: bold;
+ 
+font-size: 23px;
+}
+ 
+ 
+/* ================================
+ABOUT SECTION
+================================ */
+ 
+.about {
+ 
+background: white;
+ 
+padding: 70px 25px;
+ 
+border-top: 1px solid #e5e7eb;
+}
+ 
+ 
+.about-content {
+ 
+max-width: 750px;
+ 
+margin: auto;
+ 
+text-align: center;
+}
+ 
+ 
+.about h2 {
+ 
+font-size: 30px;
+ 
+margin-bottom: 15px;
+}
+ 
+ 
+.about p {
+ 
+color: #64748b;
+}
+ 
+ 
+/* ================================
+FOOTER
+================================ */
+ 
+footer {
+ 
+background: #111827;
+ 
+color: #d1d5db;
+ 
+text-align: center;
+ 
+padding: 35px 20px;
+}
+ 
+ 
+.footer-small {
+ 
+color: #64748b;
+ 
+font-size: 12px;
+ 
+margin-top: 5px;
+}
+ 
+ 
+/* ================================
+MOBILE / TABLET
+================================ */
+ 
+@media (max-width: 900px) {
+ 
+.cards {
+ 
+grid-template-columns:
+repeat(2, 1fr);
+}
+ 
+}
+ 
+ 
+@media (max-width: 600px) {
+ 
+.hero {
+ 
+padding: 60px 20px;
+}
+ 
+ 
+.hero h1 {
+ 
+font-size: 34px;
+}
+ 
+ 
+.cards {
+ 
+grid-template-columns: 1fr;
+}
+ 
+ 
+.container {
+ 
+padding: 50px 18px;
+}
+ 
+}
