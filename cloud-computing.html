@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cloud Computing — Hamza IT Learning</title>
+<meta name="description" content="Cloud computing from first principles: service models, hybrid and multi-cloud, networking, security, FinOps and disaster recovery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Cloud &amp; AI<span>/</span>Cloud Computing</div>
+
+    <div class="path-hero">
+      <h1>Cloud Computing</h1>
+      <p>One mental model first, then each platform on top of it. Learn what the cloud actually is, how its pieces fit together, and how to run it securely and without surprises on the bill.</p>
+      <div class="meta"><span>Path 04</span><span>Level: Mid</span><span>8 topics</span><span>≈ 6 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="cloud-fundamentals">
+          <h2><small>Topic 1</small>Cloud Fundamentals</h2>
+          <p>Cloud computing means renting computing resources — servers, storage, databases, networks, software — over the internet, paying for what you use instead of buying and running the hardware yourself.</p>
+          <ul class="points">
+            <li><b>On-demand:</b> resources are created in minutes, not ordered and installed over weeks.</li>
+            <li><b>Elastic:</b> capacity grows and shrinks with demand.</li>
+            <li><b>Pay-as-you-go:</b> spending moves from capital expense (CapEx) to operating expense (OpEx).</li>
+            <li><b>Global:</b> providers run regions and availability zones around the world.</li>
+          </ul>
+          <div class="note"><b>Shared responsibility:</b> the provider secures the cloud itself; you secure what you put in it — data, identities, configuration.</div>
+        </section>
+
+        <section id="iaas-paas-saas">
+          <h2><small>Topic 2</small>IaaS / PaaS / SaaS</h2>
+          <p>The service model decides how much the provider manages and how much stays with you.</p>
+          <table class="simple">
+            <tr><th>Model</th><th>You manage</th><th>Example use</th></tr>
+            <tr><td><b>IaaS</b></td><td>OS, runtime, apps, data</td><td>Virtual machines, block storage</td></tr>
+            <tr><td><b>PaaS</b></td><td>Your app and data</td><td>Managed databases, app hosting</td></tr>
+            <tr><td><b>SaaS</b></td><td>Users and settings only</td><td>Email, office suites, CRM</td></tr>
+          </table>
+        </section>
+
+        <section id="hybrid-cloud">
+          <h2><small>Topic 3</small>Hybrid Cloud</h2>
+          <p>Hybrid cloud connects an organisation's own data center with a public cloud so they work as one environment. It suits workloads that must stay on-premises for regulation or latency, while others move out.</p>
+          <ul class="points">
+            <li>Private connectivity (VPN or dedicated links) between sites.</li>
+            <li>One identity system across both sides.</li>
+            <li>Consistent management, monitoring and policy.</li>
+          </ul>
+        </section>
+
+        <section id="multi-cloud">
+          <h2><small>Topic 4</small>Multi-Cloud</h2>
+          <p>Multi-cloud means using more than one public cloud provider — by design, to pick the best service for each job or reduce dependence on one vendor, or by accident, after mergers and team choices.</p>
+          <div class="note">Multi-cloud adds flexibility but also complexity: more skills, more consoles, and more places for security gaps. Have a clear reason before adopting it.</div>
+        </section>
+
+        <section id="cloud-networking">
+          <h2><small>Topic 5</small>Cloud Networking</h2>
+          <p>Every cloud gives you a private, software-defined network to place resources in. The concepts are the same everywhere, even when the names differ.</p>
+          <ul class="points">
+            <li><b>Virtual network:</b> your isolated address space, divided into subnets.</li>
+            <li><b>Security rules:</b> stateful filters on what can talk to what.</li>
+            <li><b>Load balancers and gateways:</b> how traffic enters and leaves.</li>
+            <li><b>Peering and private links:</b> connecting networks without the public internet.</li>
+          </ul>
+        </section>
+
+        <section id="cloud-security">
+          <h2><small>Topic 6</small>Cloud Security</h2>
+          <p>Most cloud incidents come from misconfiguration and weak identity, not from the provider being breached.</p>
+          <ul class="points">
+            <li>Least-privilege access and multi-factor authentication for every account.</li>
+            <li>Encryption for data at rest and in transit, with managed keys.</li>
+            <li>Logging and posture management to catch risky settings early.</li>
+            <li>No storage buckets or databases exposed to the internet by default.</li>
+          </ul>
+        </section>
+
+        <section id="finops">
+          <h2><small>Topic 7</small>FinOps</h2>
+          <p>FinOps is the practice of making cloud spending visible, owned and optimised — bringing finance, engineering and management into the same conversation.</p>
+          <ul class="points">
+            <li><b>Inform:</b> tag resources and show each team what it spends.</li>
+            <li><b>Optimise:</b> right-size, switch off idle resources, use commitments and discounts.</li>
+            <li><b>Operate:</b> budgets, alerts and regular reviews.</li>
+          </ul>
+        </section>
+
+        <section id="cloud-dr">
+          <h2><small>Topic 8</small>Cloud DR</h2>
+          <p>Disaster recovery in the cloud uses other zones or regions as the backup site. The right pattern depends on how much downtime (RTO) and data loss (RPO) the business can accept.</p>
+          <table class="simple">
+            <tr><th>Pattern</th><th>Cost</th><th>Recovery speed</th></tr>
+            <tr><td>Backup &amp; restore</td><td>Lowest</td><td>Hours</td></tr>
+            <tr><td>Pilot light</td><td>Low</td><td>Tens of minutes</td></tr>
+            <tr><td>Warm standby</td><td>Medium</td><td>Minutes</td></tr>
+            <tr><td>Active-active</td><td>Highest</td><td>Near zero</td></tr>
+          </table>
+        </section>
+
+        <section id="platforms" data-title="Cloud platforms">
+          <h2><small>Next step</small>Cloud platforms</h2>
+          <p>Once the concepts are clear, choose a platform and go deeper. Each one implements the same ideas with its own names and services.</p>
+          <div class="platforms">
+            <a class="platform" href="azure.html"><b>Microsoft Azure</b><span>Strong in hybrid setups and Microsoft-centric organisations.</span></a>
+            <a class="platform" href="aws.html"><b>Amazon Web Services</b><span>The broadest catalogue of services and the largest market share.</span></a>
+            <a class="platform" href="oracle-cloud.html"><b>Oracle Cloud (OCI)</b><span>A natural home for Oracle Database and Oracle applications.</span></a>
+            <a class="platform" href="huawei-cloud.html"><b>Huawei Cloud</b><span>Growing presence in the Middle East, Africa and Asia.</span></a>
+            <a class="platform" href="alibaba-cloud.html"><b>Alibaba Cloud</b><span>The leading provider in China, expanding across the region.</span></a>
+          </div>
+        </section>
+
+        <div class="pager">
+          <a href="cybersecurity.html"><small>← Previous path</small><b>Cybersecurity</b></a>
+          <a href="artificial-intelligence.html"><small>Next path →</small><b>Artificial Intelligence</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

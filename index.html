@@ -3,698 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamza IT Learning — Technology, explained properly</title>
-<meta name="description" content="Structured learning paths for IT, cybersecurity, AI, cloud, data and digital transformation.">
+<title>Hamza IT Learning — Technology, explained calmly</title>
+<meta name="description" content="A calm, structured place to learn IT, cybersecurity, cloud, AI, data and digital transformation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#16130f;
-  --ink-2:#4a4339;
-  --ink-3:#8a8175;
-  --paper:#f6f2ea;
-  --paper-2:#efe9de;
-  --line:#dcd3c4;
-  --brand:#c4412a;
-  --brand-ink:#9e3220;
-  --night:#14171a;
-  --night-2:#1d2125;
-  --serif:"Fraunces",Georgia,serif;
-  --sans:"IBM Plex Sans",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
-  --wrap:1180px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
-.mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
-.kicker{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--brand)}
-hr.rule{border:0;border-top:1px solid var(--line)}
-
-/* ---------- header ---------- */
-header.top{position:sticky;top:0;z-index:20;background:rgba(246,242,234,.92);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.01em}
-.logo-mark{width:34px;height:34px;background:var(--brand);border-radius:7px;display:grid;place-items:center}
-.logo-mark span{display:block;width:16px;height:2.5px;background:#fff;border-radius:2px;box-shadow:0 -5px 0 #fff,0 5px 0 #fff}
-.logo b{color:var(--brand);font-weight:600}
-nav.main{display:flex;gap:30px;font-size:15px;color:var(--ink-2)}
-nav.main a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;padding:10px 18px;border-radius:4px;border:1px solid var(--ink);transition:background .15s,color .15s}
-.btn-dark{background:var(--ink);color:var(--paper)}
-.btn-dark:hover{background:var(--brand);border-color:var(--brand)}
-.btn-line:hover{background:var(--ink);color:var(--paper)}
-.menu-toggle{display:none;background:none;border:0;font:inherit;cursor:pointer}
-
-/* ---------- hero ---------- */
-.hero{padding:84px 0 72px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(44px,6.2vw,82px);line-height:1.02;letter-spacing:-.025em;margin:18px 0 26px}
-.hero h1 em{font-style:italic;font-weight:400;color:var(--brand)}
-.hero p.lede{font-size:19px;color:var(--ink-2);max-width:540px}
-.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.hero-note{margin-top:42px;display:flex;gap:28px;flex-wrap:wrap;color:var(--ink-3)}
-.hero-note span::before{content:"— ";color:var(--brand)}
-
-.term{background:var(--night);color:#d8d3c8;border-radius:8px;font-family:var(--mono);font-size:13.5px;line-height:1.75;box-shadow:0 1px 0 #000,0 30px 60px -30px rgba(20,23,26,.55);transform:rotate(.6deg)}
-.term-bar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #2b3035;color:#7c8186;font-size:12px}
-.term-bar i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3a3f44;margin-right:6px}
-.term-body{padding:18px 20px 22px}
-.term .p{color:#e0866f}
-.term .c{color:#6f777e}
-.term .g{color:#a9c5a0}
-.term .y{color:#e6c88a}
-.cursor{display:inline-block;width:8px;height:15px;background:#d8d3c8;vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-
-/* ---------- topic strip ---------- */
-.strip{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-.strip-track{display:inline-block;animation:scroll 60s linear infinite}
-.strip-track span{margin:0 22px}
-.strip-track span.d{color:var(--brand)}
-@keyframes scroll{to{transform:translateX(-50%)}}
-
-/* ---------- section heads ---------- */
-section.block{padding:96px 0}
-.sec-head{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:48px}
-.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,3.8vw,48px);line-height:1.08;letter-spacing:-.02em}
-.sec-head p{color:var(--ink-2);margin-top:14px;max-width:620px}
-
-/* ---------- catalogue ---------- */
-.cat-tools{margin-bottom:22px}
-.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:6px 2px;min-width:260px}
-.search input{border:0;background:transparent;font:inherit;font-size:15px;outline:none;width:100%;color:var(--ink)}
-.search svg{flex:none}
-
-.tracks{border-top:2px solid var(--ink)}
-.track{display:grid;grid-template-columns:64px 1.1fr 1.4fr 120px 28px;gap:24px;align-items:start;padding:26px 6px;border-bottom:1px solid var(--line);transition:background .15s}
-.track:hover{background:var(--paper-2)}
-.track .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:6px}
-.track h3{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
-.track h3 a:hover{color:var(--brand)}
-.track h3 small{display:block;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-3);margin-top:6px;letter-spacing:0}
-.track .desc{color:var(--ink-2);font-size:15.5px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.tags span{font-family:var(--mono);font-size:11.5px;padding:3px 8px;background:var(--paper-2);border:1px solid var(--line);border-radius:3px;color:var(--ink-2)}
-.track:hover .tags span{background:var(--paper)}
-.lvl{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:6px}
-.lvl b{display:block;font-weight:500;color:var(--ink)}
-.arrow{padding-top:4px;transition:transform .2s;color:var(--ink-3)}
-.track:hover .arrow{transform:translateX(4px);color:var(--brand)}
-.track.hidden{display:none}
-.empty{display:none;padding:40px 6px;color:var(--ink-3);font-style:italic}
-
-/* ---------- category map (filter) ---------- */
-.map{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 44px;padding:36px 0 34px;border-top:1px solid var(--line)}
-.grp{display:flex;flex-direction:column;align-items:center;gap:14px;transition:opacity .2s}
-.grp-h{background:none;border:0;font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:-.01em;color:var(--ink-2);cursor:pointer;padding:0 2px;border-bottom:2px solid transparent;line-height:1.3}
-.grp-h:hover{color:var(--ink)}
-.grp.on .grp-h{color:var(--brand);border-bottom-color:var(--brand)}
-.tiles{display:flex;gap:12px}
-.tile{width:122px;height:122px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;padding:12px 12px 13px;background:#fbf9f4;border:1px solid var(--line);border-radius:6px;cursor:pointer;font:inherit;color:var(--ink);box-shadow:0 1px 0 rgba(22,19,15,.04),0 6px 14px -10px rgba(22,19,15,.25);transition:transform .15s,box-shadow .15s,border-color .15s,background .15s}
-.tile:hover{transform:translateY(-3px);border-color:var(--ink-3);box-shadow:0 12px 22px -14px rgba(22,19,15,.4)}
-.tn{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
-.tt{font-size:13.5px;font-weight:600;line-height:1.3}
-.grp.on .tile{border-color:var(--brand)}
-.tile.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.tile.on .tn{color:#e0866f}
-.map.filtered .grp:not(.on){opacity:.4}
-.map.filtered .grp:not(.on):hover{opacity:.8}
-.map-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line)}
-.show-all{background:none;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12.5px;padding:7px 14px;color:var(--ink-2);cursor:pointer}
-.show-all:hover{border-color:var(--ink)}
-.show-all.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.track.flash{animation:flash 1.6s ease}
-@keyframes flash{0%,40%{background:#f3dfd6}100%{background:transparent}}
-
-/* ---------- platforms (second level) ---------- */
-.plat-btn{margin-top:14px;background:none;border:0;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:12.5px;color:var(--ink);padding:2px 0;cursor:pointer}
-.plat-btn i{font-style:normal;display:inline-block;margin-left:4px;transition:transform .2s;color:var(--brand)}
-.plat-btn[aria-expanded="true"] i{transform:rotate(45deg)}
-.plat{grid-column:2/-1;display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
-.plat>.plat-in{overflow:hidden}
-.track.open .plat{grid-template-rows:1fr}
-.plat-in{border-left:2px solid var(--brand);padding-left:18px;margin-top:0}
-.track.open .plat-in{margin-top:4px}
-.plat-h{display:block;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;margin:4px 0 8px}
-.plat-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));border-top:1px solid var(--line)}
-.plat-list a{display:flex;justify-content:space-between;gap:12px;padding:11px 14px 11px 0;border-bottom:1px solid var(--line);font-weight:500;font-size:15.5px}
-.plat-list a span{color:var(--ink-3);transition:transform .2s}
-.plat-list a:hover{color:var(--brand)}
-.plat-list a:hover span{color:var(--brand);transform:translateX(3px)}
-
-/* ---------- roadmaps ---------- */
-.dark{background:var(--night);color:#e7e2d8}
-.dark .sec-head p{color:#a59e92}
-.dark .kicker{color:#e0866f}
-.road-tabs{display:flex;gap:0;border-bottom:1px solid #2e3338;margin-bottom:40px;overflow-x:auto}
-.road-tab{background:none;border:0;color:#8f949a;font:inherit;font-size:15px;padding:14px 22px 14px 0;margin-right:22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
-.road-tab.on{color:#fff;border-bottom-color:var(--brand)}
-.road{display:none}
-.road.on{display:block}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
-.step{padding:0 22px 0 0;position:relative}
-.step::before{content:"";position:absolute;top:13px;left:28px;right:0;height:1px;background:#3a4046}
-.step:last-child::before{display:none}
-.dot{width:27px;height:27px;border-radius:50%;border:1px solid #5a6168;display:grid;place-items:center;font-family:var(--mono);font-size:11px;background:var(--night);position:relative;z-index:1}
-.step:first-child .dot{background:var(--brand);border-color:var(--brand);color:#fff}
-.step h4{font-size:16px;font-weight:600;margin:18px 0 6px;color:#fff}
-.step p{font-size:14px;color:#a59e92;line-height:1.55}
-.step .when{font-family:var(--mono);font-size:11.5px;color:#e6c88a;margin-top:10px;display:block}
-.road-foot{margin-top:44px;padding-top:22px;border-top:1px dashed #3a4046;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:#a59e92;font-size:14.5px}
-.road-foot a{color:#fff;border-bottom:1px solid var(--brand)}
-
-/* ---------- notebook / articles ---------- */
-.notes{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0;border-top:2px solid var(--ink)}
-.note{padding:28px 28px 30px 0;border-right:1px solid var(--line)}
-.note+.note{padding-left:28px}
-.note:last-child{border-right:0;padding-right:0}
-.note .meta{display:flex;gap:14px;color:var(--ink-3)}
-.note .meta b{color:var(--brand);font-weight:500}
-.note h3{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.22;margin:14px 0 12px;letter-spacing:-.01em}
-.note.big h3{font-size:32px}
-.note p{color:var(--ink-2);font-size:15.5px}
-.note a.more{display:inline-block;margin-top:18px;font-size:14.5px;border-bottom:1px solid var(--ink)}
-.note a.more:hover{color:var(--brand);border-color:var(--brand)}
-.figure{margin-top:22px;background:var(--paper-2);border:1px solid var(--line);padding:18px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);line-height:1.9}
-.figure .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.figure .bx{border:1px solid var(--ink-2);padding:2px 8px;background:var(--paper);white-space:nowrap}
-.figure .ar{color:var(--brand)}
-
-/* ---------- certifications ---------- */
-.certs{width:100%;border-collapse:collapse;font-size:15px}
-.certs th{text-align:left;font-family:var(--mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);padding:12px 14px;border-bottom:2px solid var(--ink)}
-.certs td{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-.certs td:first-child{font-weight:600;white-space:nowrap}
-.certs .c{display:inline-block;font-family:var(--mono);font-size:12.5px;margin:0 6px 6px 0;padding:2px 0;border-bottom:1px dotted var(--ink-3)}
-.table-scroll{overflow-x:auto}
-
-/* ---------- about ---------- */
-.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
-.about blockquote{font-family:var(--serif);font-size:clamp(26px,2.8vw,36px);line-height:1.25;font-weight:400;letter-spacing:-.01em}
-.about blockquote::before{content:"“";display:block;font-size:90px;line-height:.6;color:var(--brand);margin-bottom:10px}
-.about .sig{margin-top:26px;color:var(--ink-3)}
-.principles{list-style:none;counter-reset:p}
-.principles li{counter-increment:p;padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:48px 1fr;gap:12px}
-.principles li:last-child{border-bottom:1px solid var(--line)}
-.principles li::before{content:counter(p,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--brand);padding-top:3px}
-.principles b{display:block;font-weight:600;margin-bottom:3px}
-.principles span{color:var(--ink-2);font-size:15.5px}
-
-/* ---------- newsletter ---------- */
-.signup{background:var(--brand);color:#fff;padding:64px 0}
-.signup .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.signup h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,42px);font-weight:600;line-height:1.1;letter-spacing:-.02em}
-.signup p{opacity:.85;margin-top:10px}
-.signup form{display:flex;border-bottom:2px solid #fff}
-.signup input{flex:1;background:transparent;border:0;color:#fff;font:inherit;font-size:18px;padding:14px 0;outline:none}
-.signup input::placeholder{color:rgba(255,255,255,.7)}
-.signup button{background:none;border:0;color:#fff;font:inherit;font-weight:600;cursor:pointer;padding:0 4px}
-
-/* ---------- footer ---------- */
-footer{padding:64px 0 36px;background:var(--paper-2);border-top:1px solid var(--line)}
-.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:40px}
-.foot h5{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);font-weight:500;margin-bottom:14px}
-.foot ul{list-style:none}
-.foot li{margin:7px 0;font-size:15px;color:var(--ink-2)}
-.foot li a:hover{color:var(--brand)}
-.foot p{color:var(--ink-2);font-size:15px;max-width:320px;margin-top:14px}
-.legal{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--ink-3);flex-wrap:wrap;gap:10px}
-
-/* ---------- reveal ---------- */
-.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.strip-track,.cursor{animation:none}}
-
-/* ---------- responsive ---------- */
-@media (max-width:980px){
-  .hero .wrap,.about,.signup .wrap{grid-template-columns:1fr;gap:48px}
-  .sec-head{grid-template-columns:1fr;gap:10px}
-  .track{grid-template-columns:44px 1fr 24px;gap:14px}
-  .track .desc{grid-column:2/3}
-  .track .lvl{grid-column:2/3;padding-top:0}
-  .track .arrow{grid-column:3;grid-row:1}
-  .steps{grid-template-columns:1fr;gap:28px}
-  .step{padding:0 0 0 44px}
-  .step .dot{position:absolute;left:0;top:0}
-  .step h4{margin-top:2px}
-  .step::before{top:28px;bottom:-28px;left:13px;right:auto;width:1px;height:auto}
-  .notes{grid-template-columns:1fr}
-  .note,.note+.note{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
-  .foot{grid-template-columns:1fr 1fr}
-}
-@media (max-width:760px){
-  nav.main{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
-  nav.main.open{display:flex}
-  nav.main a{padding:14px 28px;border-top:1px solid var(--line)}
-  .menu-toggle{display:block}
-  .top .btn{display:none}
-  section.block{padding:72px 0}
-  .hero{padding:56px 0}
-  .search{min-width:0;width:100%}
-  .map{gap:26px 18px;justify-content:flex-start}
-  .grp{align-items:flex-start}
-  .grp-h{font-size:20px}
-  .tile{width:104px;height:104px}
-  .tt{font-size:12.5px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a href="#" class="logo"><span class="logo-mark"><span></span></span>Hamza <b>IT Learning</b></a>
-    <nav class="main" id="nav">
-      <a href="#tracks">Learning paths</a>
-      <a href="#roadmaps">Career roadmaps</a>
-      <a href="#notebook">Notebook</a>
-      <a href="#certs">Certifications</a>
-      <a href="#about">About</a>
-    </nav>
-    <a href="#tracks" class="btn btn-dark">Start learning</a>
-    <button class="menu-toggle mono" id="menuBtn" aria-label="Menu">MENU</button>
-  </div>
-</header>
+<header id="site-header"></header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="rv">
-      <div class="kicker">A technology knowledge hub</div>
-      <h1>Learn technology the way it's <em>actually used</em> at work.</h1>
-      <p class="lede">Structured paths through networking, cybersecurity, cloud, AI, data and digital transformation. Written plainly, ordered carefully, and tied to the jobs and certifications that matter.</p>
-      <div class="hero-actions">
-        <a href="#tracks" class="btn btn-dark">Browse the paths →</a>
-        <a href="#roadmaps" class="btn btn-line">Pick a career roadmap</a>
-      </div>
-      <div class="hero-note mono"><span>Free to read</span><span>No sign-up wall</span><span>English · العربية soon</span></div>
-    </div>
+<main>
+  <section class="home-hero">
+    <div class="wrap rv">
+      <span class="eyebrow">A technology knowledge hub</span>
+      <h1>Learn technology <em>one clear step</em> at a time.</h1>
+      <p class="lede">Thirteen learning paths across infrastructure, security, cloud, AI, data, business systems and IT management. Pick a topic from the menu, or tell us what you're looking for.</p>
 
-    <div class="term rv" aria-hidden="true">
-      <div class="term-bar"><span><i></i><i></i><i></i></span><span>~/learning</span></div>
-      <div class="term-body">
-<span class="p">$</span> ls paths/<br>
-<span class="g">infrastructure/  networking/  cybersecurity/</span><br>
-<span class="g">cloud/  ai/  data-analytics/  databases/</span><br>
-<span class="g">erp/  devops/  backup-dr/  itsm/</span><br>
-<span class="g">architecture-dt/  grc/</span><br>
-<span class="p">$</span> cat cybersecurity/README<br>
-<span class="c"># 9 modules · beginner → practitioner</span><br>
-<span class="y">01</span> threat landscape &nbsp;<span class="y">02</span> network security<br>
-<span class="y">03</span> identity &amp; access <span class="y">04</span> SOC operations ...<br>
-<span class="p">$</span> next --suggest<br>
-→ start with <span class="y">networking/01-osi-model</span><br>
-<span class="p">$</span> <span class="cursor"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="strip" aria-hidden="true">
-  <div class="strip-track">
-    <span>Networking</span><span class="d">/</span><span>Zero Trust</span><span class="d">/</span><span>Cloud</span><span class="d">/</span><span>Generative AI</span><span class="d">/</span><span>RAG</span><span class="d">/</span><span>SOC</span><span class="d">/</span><span>ERP</span><span class="d">/</span><span>Databases</span><span class="d">/</span><span>Kubernetes</span><span class="d">/</span><span>Data Analytics</span><span class="d">/</span><span>Disaster Recovery</span><span class="d">/</span><span>ITIL 4</span><span class="d">/</span><span>ISO 27001</span><span class="d">/</span><span>Digital Transformation</span><span class="d">/</span>
-    <span>Networking</span><span class="d">/</span><span>Zero Trust</span><span class="d">/</span><span>Cloud</span><span class="d">/</span><span>Generative AI</span><span class="d">/</span><span>RAG</span><span class="d">/</span><span>SOC</span><span class="d">/</span><span>ERP</span><span class="d">/</span><span>Databases</span><span class="d">/</span><span>Kubernetes</span><span class="d">/</span><span>Data Analytics</span><span class="d">/</span><span>Disaster Recovery</span><span class="d">/</span><span>ITIL 4</span><span class="d">/</span><span>ISO 27001</span><span class="d">/</span><span>Digital Transformation</span><span class="d">/</span>
-  </div>
-</div>
-
-<!-- TRACKS -->
-<section class="block" id="tracks">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">01 — Learning paths</div>
-      <div>
-        <h2>Thirteen paths covering the whole field.</h2>
-        <p>Each path starts from zero and builds in order. Read one end to end, or jump straight to the module you need for a project or an exam.</p>
-      </div>
-    </div>
-
-    <div class="cat-tools">
-      <div class="map" id="map">
-        <div class="grp" data-f="infra"><button class="grp-h" type="button" data-f="infra">Infrastructure</button><div class="tiles"><button class="tile" type="button" data-t="01"><span class="tn">01</span><span class="tt">IT Fundamentals &amp; Infrastructure</span></button><button class="tile" type="button" data-t="02"><span class="tn">02</span><span class="tt">Networking &amp; Connectivity</span></button></div></div>
-        <div class="grp" data-f="security"><button class="grp-h" type="button" data-f="security">Security</button><div class="tiles"><button class="tile" type="button" data-t="03"><span class="tn">03</span><span class="tt">Cybersecurity</span></button></div></div>
-        <div class="grp" data-f="cloudai"><button class="grp-h" type="button" data-f="cloudai">Cloud &amp; AI</button><div class="tiles"><button class="tile" type="button" data-t="04"><span class="tn">04</span><span class="tt">Cloud Computing</span></button><button class="tile" type="button" data-t="05"><span class="tn">05</span><span class="tt">Artificial Intelligence</span></button></div></div>
-        <div class="grp" data-f="data"><button class="grp-h" type="button" data-f="data">Data</button><div class="tiles"><button class="tile" type="button" data-t="06"><span class="tn">06</span><span class="tt">Data &amp; Analytics</span></button><button class="tile" type="button" data-t="07"><span class="tn">07</span><span class="tt">Database Management Systems</span></button></div></div>
-        <div class="grp" data-f="apps"><button class="grp-h" type="button" data-f="apps">Applications</button><div class="tiles"><button class="tile" type="button" data-t="08"><span class="tn">08</span><span class="tt">ERP &amp; Enterprise Applications</span></button></div></div>
-        <div class="grp" data-f="ops"><button class="grp-h" type="button" data-f="ops">Operations</button><div class="tiles"><button class="tile" type="button" data-t="09"><span class="tn">09</span><span class="tt">DevOps &amp; Automation</span></button><button class="tile" type="button" data-t="10"><span class="tn">10</span><span class="tt">Backup, DR &amp; Business Continuity</span></button><button class="tile" type="button" data-t="11"><span class="tn">11</span><span class="tt">IT Service Management</span></button></div></div>
-        <div class="grp" data-f="strategy"><button class="grp-h" type="button" data-f="strategy">Strategy &amp; Governance</button><div class="tiles"><button class="tile" type="button" data-t="12"><span class="tn">12</span><span class="tt">Enterprise Architecture &amp; DT</span></button><button class="tile" type="button" data-t="13"><span class="tn">13</span><span class="tt">Governance, Risk &amp; Compliance</span></button></div></div>
-      </div>
-      <div class="map-bar">
-        <button class="show-all on" type="button" id="showAll">Show all 13 paths</button>
-        <label class="search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" type="search" placeholder="Search a topic, e.g. firewall, RAG, AWS">
+      <div class="finder" id="finder">
+        <div class="finder-field">
+        <label class="finder-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="find" type="search" placeholder="What do you want to learn?" autocomplete="off">
         </label>
-      </div>
-    </div>
-
-    <div class="tracks" id="trackList">
-      <div class="track" data-cat="infra">
-        <span class="n">01</span>
-        <h3><a href="#">IT Fundamentals &amp; Infrastructure</a><small>Hardware, servers, operating systems, virtualization</small></h3>
-        <div class="desc">How computers, servers and operating systems work, how they are virtualized, and how to troubleshoot them methodically.
-          <div class="tags"><span>Hardware</span><span>Servers</span><span>Operating systems</span><span>Directory services</span><span>Virtualization</span><span>Storage</span></div></div>
-        <span class="lvl"><b>Beginner</b>9 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="infra">
-        <span class="n">02</span>
-        <h3><a href="#">Networking &amp; Connectivity</a><small>From cables to the cloud edge</small></h3>
-        <div class="desc">The OSI and TCP/IP models, addressing, routing and switching, wireless, WAN and SD-WAN, and the services that hold networks together.
-          <div class="tags"><span>OSI</span><span>IPv4 / IPv6</span><span>Subnetting</span><span>VLAN</span><span>DNS</span><span>Routing</span><span>SD-WAN</span></div></div>
-        <span class="lvl"><b>Beginner → Mid</b>10 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="security">
-        <span class="n">03</span>
-        <h3><a href="#">Cybersecurity</a><small>Defend, detect, respond</small></h3>
-        <div class="desc">Threats and attack techniques, network and endpoint defence, identity, SOC work, incident response and ethical hacking.
-          <div class="tags"><span>Zero Trust</span><span>Firewalls</span><span>SIEM</span><span>MITRE ATT&amp;CK</span><span>Pentesting</span><span>IAM</span><span>Incident response</span></div></div>
-        <span class="lvl"><b>Beginner → Practitioner</b>9 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="cloudai">
-        <span class="n">04</span>
-        <h3><a href="#">Cloud Computing</a><small>One mental model, then each platform</small></h3>
-        <div class="desc">Core cloud concepts first: service models, compute, storage, networking, identity and cost. Then each platform explained on top of the same foundation.
-          <div class="tags"><span>IaaS / PaaS / SaaS</span><span>Compute</span><span>Storage</span><span>Networking</span><span>Identity</span><span>Hybrid cloud</span><span>Cost &amp; governance</span></div>
-          <button class="plat-btn" type="button" aria-expanded="false">Cloud platforms · 5 <i>+</i></button></div>
-        <span class="lvl"><b>Mid</b>12 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-        <div class="plat"><div class="plat-in"><span class="plat-h mono">Cloud platforms</span><div class="plat-list"><a href="#">Microsoft Azure<span>→</span></a><a href="#">Amazon Web Services (AWS)<span>→</span></a><a href="#">Oracle Cloud (OCI)<span>→</span></a><a href="#">Huawei Cloud<span>→</span></a><a href="#">Alibaba Cloud<span>→</span></a></div></div></div>
-      </div>
-      <div class="track" data-cat="cloudai">
-        <span class="n">05</span>
-        <h3><a href="#">Artificial Intelligence</a><small>From fundamentals to enterprise AI</small></h3>
-        <div class="desc">Machine learning and deep learning basics, generative AI and LLMs, prompt engineering, RAG and agents, and running AI responsibly in an organisation.
-          <div class="tags"><span>Machine learning</span><span>Deep learning</span><span>LLMs</span><span>Prompting</span><span>RAG</span><span>AI agents</span><span>MLOps</span></div>
-          <button class="plat-btn" type="button" aria-expanded="false">AI platforms · 4 <i>+</i></button></div>
-        <span class="lvl"><b>Beginner → Mid</b>13 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-        <div class="plat"><div class="plat-in"><span class="plat-h mono">AI platforms</span><div class="plat-list"><a href="#">Microsoft Copilot<span>→</span></a><a href="#">Azure AI<span>→</span></a><a href="#">Amazon Bedrock<span>→</span></a><a href="#">Google Vertex AI<span>→</span></a></div></div></div>
-      </div>
-      <div class="track" data-cat="data">
-        <span class="n">06</span>
-        <h3><a href="#">Data &amp; Analytics</a><small>Turning records into decisions</small></h3>
-        <div class="desc">SQL for analysis, data modelling, ETL pipelines, warehouses and lakes, and building dashboards people actually use.
-          <div class="tags"><span>SQL</span><span>Data modelling</span><span>ETL</span><span>Data warehouse</span><span>Dashboards</span><span>Data governance</span></div></div>
-        <span class="lvl"><b>Beginner → Mid</b>9 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="data">
-        <span class="n">07</span>
-        <h3><a href="#">Database Management Systems</a><small>Design, run, tune, protect</small></h3>
-        <div class="desc">Relational design and normalization, then administering a database engine: installation, security, backup, performance tuning and high availability.
-          <div class="tags"><span>Normalization</span><span>SQL</span><span>Security</span><span>Backup &amp; recovery</span><span>Performance tuning</span><span>High availability</span></div>
-          <button class="plat-btn" type="button" aria-expanded="false">Database engines · 5 <i>+</i></button></div>
-        <span class="lvl"><b>Mid → Advanced</b>11 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-        <div class="plat"><div class="plat-in"><span class="plat-h mono">Database engines</span><div class="plat-list"><a href="#">Oracle Database<span>→</span></a><a href="#">Microsoft SQL Server<span>→</span></a><a href="#">MySQL<span>→</span></a><a href="#">PostgreSQL<span>→</span></a><a href="#">MongoDB<span>→</span></a></div></div></div>
-      </div>
-      <div class="track" data-cat="apps">
-        <span class="n">08</span>
-        <h3><a href="#">ERP &amp; Enterprise Applications</a><small>The systems that run the business</small></h3>
-        <div class="desc">How ERP systems model finance, supply chain, inventory, purchasing and manufacturing, how they are implemented and administered, and how they integrate with everything else.
-          <div class="tags"><span>Finance</span><span>Supply chain</span><span>Inventory</span><span>Purchasing</span><span>Manufacturing</span><span>ERP administration</span><span>Integration</span></div>
-          <button class="plat-btn" type="button" aria-expanded="false">ERP systems · 4 <i>+</i></button></div>
-        <span class="lvl"><b>Mid</b>8 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-        <div class="plat"><div class="plat-in"><span class="plat-h mono">ERP systems</span><div class="plat-list"><a href="#">Oracle E-Business Suite (EBS)<span>→</span></a><a href="#">Oracle Fusion Cloud<span>→</span></a><a href="#">SAP S/4HANA<span>→</span></a><a href="#">Microsoft Dynamics 365<span>→</span></a></div></div></div>
-      </div>
-      <div class="track" data-cat="ops">
-        <span class="n">09</span>
-        <h3><a href="#">DevOps &amp; Automation</a><small>Ship reliably, repeatably</small></h3>
-        <div class="desc">Version control, CI/CD, containers, orchestration, infrastructure as code and scripting the repetitive parts away.
-          <div class="tags"><span>Version control</span><span>CI/CD</span><span>Containers</span><span>Orchestration</span><span>Infrastructure as code</span><span>Scripting</span></div></div>
-        <span class="lvl"><b>Mid</b>9 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="ops">
-        <span class="n">10</span>
-        <h3><a href="#">Backup, Disaster Recovery &amp; Business Continuity</a><small>Stay up, or come back fast</small></h3>
-        <div class="desc">Backup strategy, RPO and RTO, replication and DR sites, ransomware-resilient recovery, and the business continuity plans that tie it together.
-          <div class="tags"><span>3-2-1 rule</span><span>RPO / RTO</span><span>Replication</span><span>DR sites</span><span>Ransomware recovery</span><span>BCP</span></div></div>
-        <span class="lvl"><b>Mid</b>7 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="ops">
-        <span class="n">11</span>
-        <h3><a href="#">IT Service Management &amp; Operations</a><small>Running IT as a service</small></h3>
-        <div class="desc">Service desk, incident, problem and change management, SLAs, monitoring and NOC operations.
-          <div class="tags"><span>ITIL 4</span><span>Service desk</span><span>Incident</span><span>Problem</span><span>Change</span><span>SLA</span><span>NOC</span></div></div>
-        <span class="lvl"><b>Beginner → Mid</b>8 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="strategy">
-        <span class="n">12</span>
-        <h3><a href="#">Enterprise Architecture &amp; Digital Transformation</a><small>Technology that changes how work gets done</small></h3>
-        <div class="desc">Mapping business, data, application and technology architecture, then using it to plan transformation: strategy, process redesign, e-services and change management.
-          <div class="tags"><span>TOGAF</span><span>Capability maps</span><span>Process redesign</span><span>E-services</span><span>Change management</span><span>Vision 2030</span></div></div>
-        <span class="lvl"><b>Mid → Advanced</b>10 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <div class="track" data-cat="strategy">
-        <span class="n">13</span>
-        <h3><a href="#">IT Governance, Risk &amp; Compliance</a><small>Frameworks, risk, audit</small></h3>
-        <div class="desc">Proving IT is under control: governance frameworks, risk assessment, security standards, data protection law and audit readiness.
-          <div class="tags"><span>COBIT</span><span>ISO 27001</span><span>NCA ECC</span><span>PDPL</span><span>Risk management</span><span>IT audit</span></div></div>
-        <span class="lvl"><b>Mid → Advanced</b>8 modules</span>
-        <a class="arrow" href="#" aria-label="Open path">→</a>
-      </div>
-      <p class="empty" id="empty">Nothing matches that yet. Try a broader word, or browse all paths.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAPS -->
-<section class="block dark" id="roadmaps">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">02 — Career roadmaps</div>
-      <div>
-        <h2>Know where you're heading before you start.</h2>
-        <p>Each roadmap strings modules from several paths into the order a hiring manager would expect, with a realistic time estimate at each stage.</p>
-      </div>
-    </div>
-
-    <div class="road-tabs" id="roadTabs">
-      <button class="road-tab on" data-r="soc">SOC Analyst</button>
-      <button class="road-tab" data-r="cloud">Cloud Engineer</button>
-      <button class="road-tab" data-r="ai">AI Engineer</button>
-      <button class="road-tab" data-r="dt">Digital Transformation Lead</button>
-    </div>
-
-    <div class="road on" id="r-soc">
-      <div class="steps">
-        <div class="step"><span class="dot">1</span><h4>IT &amp; OS basics</h4><p>Operating systems, the command line, how users and permissions work.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">2</span><h4>Networking</h4><p>TCP/IP, ports and protocols, reading a packet capture.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">3</span><h4>Security foundations</h4><p>Threats, controls, cryptography basics. Target: Security+.</p><span class="when">~ 8 weeks</span></div>
-        <div class="step"><span class="dot">4</span><h4>SOC tooling</h4><p>SIEM queries, alert triage, MITRE ATT&amp;CK mapping, playbooks.</p><span class="when">~ 8 weeks</span></div>
-        <div class="step"><span class="dot">5</span><h4>Incident response</h4><p>Containment, forensics basics, writing a clear incident report.</p><span class="when">~ 6 weeks</span></div>
-      </div>
-      <div class="road-foot"><span>Total: roughly 7–8 months at 8–10 hours a week.</span><a href="#">Open the full SOC roadmap →</a></div>
-    </div>
-
-    <div class="road" id="r-cloud">
-      <div class="steps">
-        <div class="step"><span class="dot">1</span><h4>Linux &amp; networking</h4><p>The two skills every cloud job quietly assumes you have.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">2</span><h4>Cloud concepts</h4><p>Regions, IAM, virtual networks, storage tiers, shared responsibility.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">3</span><h4>Pick a platform</h4><p>Go deep on one cloud platform from the Cloud Computing path.</p><span class="when">~ 10 weeks</span></div>
-        <div class="step"><span class="dot">4</span><h4>Infrastructure as code</h4><p>Templates, pipelines, repeatable environments.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">5</span><h4>Containers &amp; security</h4><p>Containers, orchestration, cloud security posture.</p><span class="when">~ 8 weeks</span></div>
-      </div>
-      <div class="road-foot"><span>Total: roughly 8 months at 8–10 hours a week.</span><a href="#">Open the full cloud roadmap →</a></div>
-    </div>
-
-    <div class="road" id="r-ai">
-      <div class="steps">
-        <div class="step"><span class="dot">1</span><h4>Python &amp; data</h4><p>Python, data handling, SQL, cleaning a messy dataset.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">2</span><h4>ML fundamentals</h4><p>Regression, classification, evaluation, overfitting.</p><span class="when">~ 8 weeks</span></div>
-        <div class="step"><span class="dot">3</span><h4>LLMs &amp; prompting</h4><p>How language models work, prompting patterns, evaluation.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">4</span><h4>RAG &amp; agents</h4><p>Embeddings, vector search, tool use, building a working assistant.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">5</span><h4>Production &amp; safety</h4><p>MLOps, monitoring, AI security and responsible AI.</p><span class="when">~ 6 weeks</span></div>
-      </div>
-      <div class="road-foot"><span>Total: roughly 7 months at 8–10 hours a week.</span><a href="#">Open the full AI roadmap →</a></div>
-    </div>
-
-    <div class="road" id="r-dt">
-      <div class="steps">
-        <div class="step"><span class="dot">1</span><h4>Technology literacy</h4><p>Enough cloud, data and AI to judge proposals with confidence.</p><span class="when">~ 6 weeks</span></div>
-        <div class="step"><span class="dot">2</span><h4>Process thinking</h4><p>Mapping current processes, finding waste, BPMN basics.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">3</span><h4>Strategy &amp; roadmap</h4><p>Maturity models, prioritising initiatives, building a business case.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">4</span><h4>Governance</h4><p>ITIL, COBIT, risk, and keeping the programme compliant.</p><span class="when">~ 4 weeks</span></div>
-        <div class="step"><span class="dot">5</span><h4>Change &amp; measurement</h4><p>Adoption, training, KPIs, reporting results to leadership.</p><span class="when">~ 4 weeks</span></div>
-      </div>
-      <div class="road-foot"><span>Total: roughly 5 months alongside a full-time role.</span><a href="#">Open the full transformation roadmap →</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- NOTEBOOK -->
-<section class="block" id="notebook">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="kicker">03 — The notebook</div>
-      <div>
-        <h2>Recent lessons and explainers.</h2>
-        <p>Short, standalone pieces that answer one question well. Good for a coffee break; better as a refresher before an interview.</p>
-      </div>
-    </div>
-
-    <div class="notes rv">
-      <article class="note big">
-        <div class="meta mono"><b>AI</b><span>12 min read</span></div>
-        <h3>RAG, explained without the hype</h3>
-        <p>Why a language model on its own can't answer questions about your documents, and how retrieval fixes that — step by step, with the parts that usually go wrong.</p>
-        <div class="figure">
-          <div class="row"><span class="bx">Question</span><span class="ar">→</span><span class="bx">Search docs</span><span class="ar">→</span><span class="bx">Top passages</span></div>
-          <div class="row" style="margin-top:8px"><span class="ar">↳</span><span class="bx">LLM + context</span><span class="ar">→</span><span class="bx">Answer + sources</span></div>
+        <div class="results" id="results"></div>
         </div>
-        <a href="#" class="more">Read the lesson</a>
-      </article>
-      <article class="note">
-        <div class="meta mono"><b>Security</b><span>8 min read</span></div>
-        <h3>Zero Trust in one diagram and five decisions</h3>
-        <p>"Never trust, always verify" is a slogan. Here is what it means for identity, devices, network segments and logging on a Monday morning.</p>
-        <a href="#" class="more">Read the lesson</a>
-      </article>
-      <article class="note">
-        <div class="meta mono"><b>Cloud</b><span>10 min read</span></div>
-        <h3>The same virtual machine on five clouds</h3>
-        <p>Every cloud platform names things differently. A translation table for compute, storage and networking across the platforms we cover.</p>
-        <a href="#" class="more">Read the lesson</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CERTS -->
-<section class="block" id="certs" style="padding-top:0">
-  <div class="wrap">
-    <hr class="rule" style="margin-bottom:96px">
-    <div class="sec-head rv">
-      <div class="kicker">04 — Certifications</div>
-      <div>
-        <h2>Which exam each path prepares you for.</h2>
-        <p>Paths are written to cover the objectives of these certifications. Pick the exam first if your employer asks for one.</p>
+        <div class="finder-hint">Try
+          <button type="button">Zero Trust</button>
+          <button type="button">RAG</button>
+          <button type="button">Subnetting</button>
+          <button type="button">FinOps</button>
+        </div>
       </div>
     </div>
-    <div class="table-scroll rv">
-      <table class="certs">
-        <thead><tr><th>Path</th><th>Entry level</th><th>Professional</th></tr></thead>
-        <tbody>
-          <tr><td>IT &amp; Networking</td><td><span class="c">CompTIA A+</span><span class="c">CompTIA Network+</span></td><td><span class="c">Cisco CCNA</span><span class="c">Huawei HCIA-Datacom</span></td></tr>
-          <tr><td>Cybersecurity</td><td><span class="c">CompTIA Security+</span><span class="c">ISC2 CC</span></td><td><span class="c">CySA+</span><span class="c">CEH</span><span class="c">CISSP</span></td></tr>
-          <tr><td>Cloud</td><td><span class="c">AZ-900</span><span class="c">AWS Cloud Practitioner</span><span class="c">OCI Foundations</span><span class="c">HCIA-Cloud</span><span class="c">Alibaba ACA</span></td><td><span class="c">AZ-104</span><span class="c">AWS SAA</span><span class="c">OCI Architect</span></td></tr>
-          <tr><td>AI &amp; Analytics</td><td><span class="c">AI-900</span></td><td><span class="c">AI-102</span><span class="c">PL-300</span><span class="c">AWS ML Specialty</span></td></tr>
-          <tr><td>Databases</td><td><span class="c">Oracle SQL Associate</span><span class="c">DP-900</span></td><td><span class="c">Oracle DBA OCP</span><span class="c">DP-300</span></td></tr>
-          <tr><td>ERP</td><td><span class="c">SAP Certified Associate</span><span class="c">MB-910</span></td><td><span class="c">Oracle Fusion Implementation</span><span class="c">SAP S/4HANA Consultant</span></td></tr>
-          <tr><td>DevOps</td><td><span class="c">Terraform Associate</span></td><td><span class="c">CKA</span><span class="c">AZ-400</span></td></tr>
-          <tr><td>Backup &amp; DR</td><td><span class="c">ISO 22301 Foundation</span></td><td><span class="c">ISO 22301 Lead Implementer</span><span class="c">DRI CBCP</span></td></tr>
-          <tr><td>Service Mgmt</td><td><span class="c">ITIL 4 Foundation</span></td><td><span class="c">ITIL 4 Managing Professional</span></td></tr>
-          <tr><td>Architecture</td><td><span class="c">TOGAF Foundation</span></td><td><span class="c">TOGAF Enterprise Architecture Practitioner</span></td></tr>
-          <tr><td>GRC</td><td><span class="c">ISO 27001 Foundation</span><span class="c">COBIT 2019 Foundation</span></td><td><span class="c">ISO 27001 Lead Implementer</span><span class="c">CISA</span><span class="c">CISM</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section class="block" id="about" style="background:var(--paper-2);border-top:1px solid var(--line)">
-  <div class="wrap about">
-    <div class="rv">
-      <div class="kicker" style="margin-bottom:22px">05 — Why this site exists</div>
-      <blockquote>Most people don't struggle with technology because it's hard. They struggle because nobody showed them the order to learn it in.</blockquote>
-      <p class="sig mono">Hamza Musallam — founder &amp; author</p>
-    </div>
-    <ul class="principles rv">
-      <li><div><b>Order before depth</b><span>Every path is sequenced so each lesson only depends on the ones before it.</span></div></li>
-      <li><div><b>Plain language</b><span>Jargon is defined the first time it appears, then used consistently.</span></div></li>
-      <li><div><b>Tied to real work</b><span>Examples come from networks, SOCs and projects, not from textbooks.</span></div></li>
-      <li><div><b>Concepts before products</b><span>Learn how something works first, then how each platform implements it.</span></div></li>
-    </ul>
-  </div>
-</section>
-
-<!-- SIGNUP -->
-<section class="signup">
-  <div class="wrap">
-    <div>
-      <h2>One useful lesson, every two weeks.</h2>
-      <p>New modules and explainers in your inbox. Nothing else.</p>
-    </div>
-    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';">
-      <input type="email" required placeholder="you@example.com" aria-label="Email address">
-      <button type="submit">Subscribe →</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a href="#" class="logo"><span class="logo-mark"><span></span></span>Hamza <b>IT Learning</b></a>
-        <p>A free, structured knowledge hub for IT, cybersecurity, cloud, AI and digital transformation.</p>
+  <section class="index">
+    <div class="wrap">
+      <div class="index-head rv">
+        <h2>Where would you like to start?</h2>
+        <p>Seven areas, thirteen paths.</p>
       </div>
-      <div><h5>Core</h5><ul><li><a href="#">Infrastructure</a></li><li><a href="#">Networking</a></li><li><a href="#">Cybersecurity</a></li><li><a href="#">Cloud Computing</a></li><li><a href="#">Artificial Intelligence</a></li><li><a href="#">Data &amp; Analytics</a></li><li><a href="#">Databases</a></li></ul></div>
-      <div><h5>Enterprise</h5><ul><li><a href="#">ERP &amp; Applications</a></li><li><a href="#">DevOps</a></li><li><a href="#">Backup &amp; DR</a></li><li><a href="#">IT Service Management</a></li><li><a href="#">Architecture &amp; DT</a></li><li><a href="#">Governance &amp; Risk</a></li></ul></div>
-      <div><h5>Site</h5><ul><li><a href="#about">About</a></li><li><a href="#roadmaps">Roadmaps</a></li><li><a href="#certs">Certifications</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div class="cats" id="cats"></div>
     </div>
-    <div class="legal mono"><span>© 2026 Hamza IT Learning</span><span>Made in Riyadh</span></div>
-  </div>
-</footer>
+  </section>
+</main>
 
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
 <script>
-// mobile menu
-document.getElementById('menuBtn').onclick=()=>document.getElementById('nav').classList.toggle('open');
+// category index (built from the same menu data)
+document.getElementById("cats").innerHTML = SITE.map(c => `
+  <div class="cat rv">
+    <h3>${esc(c.name)}</h3>
+    <p>${esc(c.about)}</p>
+    <ul>${c.paths.map(p => `<li><a href="${p.page}">${esc(p.title)}</a></li>`).join("")}</ul>
+  </div>`).join("");
+reveal();
 
-// catalogue filter: category map + search
-const tracks=[...document.querySelectorAll('.track')],q=document.getElementById('q'),empty=document.getElementById('empty'),
-      map=document.getElementById('map'),grps=[...document.querySelectorAll('.grp')],tiles=[...document.querySelectorAll('.tile')],allBtn=document.getElementById('showAll');
-let cat='all';
-function apply(){
-  const term=q.value.trim().toLowerCase();let shown=0;
-  tracks.forEach(t=>{
-    const okCat=cat==='all'||t.dataset.cat.split(' ').includes(cat);
-    const okQ=!term||t.textContent.toLowerCase().includes(term);
-    const ok=okCat&&okQ;t.classList.toggle('hidden',!ok);if(ok)shown++;
-  });
-  empty.style.display=shown?'none':'block';
-  grps.forEach(g=>g.classList.toggle('on',g.dataset.f===cat));
-  map.classList.toggle('filtered',cat!=='all');
-  allBtn.classList.toggle('on',cat==='all');
+// topic finder
+const items = SITE.flatMap(c => c.paths.flatMap(p => [
+  { label: p.title, where: c.name, href: p.page },
+  ...p.topics.map(t => ({ label: t, where: p.title, href: p.page + "#" + slug(t) }))
+]));
+const input = document.getElementById("find"), box = document.getElementById("results");
+let sel = 0, list = [];
+function search() {
+  const q = input.value.trim().toLowerCase();
+  if (!q) { box.classList.remove("show"); return; }
+  const score = i => { const l = i.label.toLowerCase();
+    return l.startsWith(q) ? 0 : new RegExp("\\b" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(l) ? 1 : l.includes(q) ? 2 : 3; };
+  list = items.filter(i => i.label.toLowerCase().includes(q) || i.where.toLowerCase().includes(q))
+              .sort((a, b) => score(a) - score(b)).slice(0, 8);
+  sel = 0;
+  box.innerHTML = list.length
+    ? list.map((i, k) => `<a href="${i.href}" class="${k === 0 ? "sel" : ""}">${esc(i.label)}<span>${esc(i.where)}</span></a>`).join("")
+    : `<div class="none">Nothing yet for “${esc(input.value.trim())}”. Try a broader word, or browse the menu above.</div>`;
+  box.classList.add("show");
 }
-function setCat(c){cat=c;tiles.forEach(x=>x.classList.remove('on'));apply();}
-document.querySelectorAll('.grp-h').forEach(h=>h.onclick=()=>setCat(cat===h.dataset.f?'all':h.dataset.f));
-tiles.forEach(t=>t.onclick=()=>{
-  setCat(t.closest('.grp').dataset.f);t.classList.add('on');
-  const row=tracks.find(r=>r.querySelector('.n').textContent===t.dataset.t);
-  if(row){row.scrollIntoView({behavior:'smooth',block:'center'});row.classList.remove('flash');void row.offsetWidth;row.classList.add('flash');}
+input.addEventListener("input", search);
+input.addEventListener("keydown", e => {
+  if (!list.length) return;
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault();
+    sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + list.length) % list.length;
+    [...box.children].forEach((a, k) => a.classList.toggle("sel", k === sel));
+  }
+  if (e.key === "Enter") location.href = list[sel].href;
 });
-allBtn.onclick=()=>{q.value='';setCat('all');};
-q.addEventListener('input',apply);
-
-// platforms toggle (second level)
-document.querySelectorAll('.plat-btn').forEach(b=>b.onclick=()=>{
-  const t=b.closest('.track');const open=t.classList.toggle('open');b.setAttribute('aria-expanded',open);
-});
-
-// roadmap tabs
-document.querySelectorAll('.road-tab').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.road-tab').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('.road').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on');document.getElementById('r-'+b.dataset.r).classList.add('on');
-});
-
-// reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.addEventListener("click", e => { if (!document.getElementById("finder").contains(e.target)) box.classList.remove("show"); });
+document.querySelectorAll(".finder-hint button").forEach(b => b.onclick = () => { input.value = b.textContent; search(); input.focus(); });
 </script>
 </body>
 </html>
