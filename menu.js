@@ -12,9 +12,11 @@ const SITE = [
     { n: "03", title: "Cybersecurity", page: "cybersecurity.html", explore: "Explore Cybersecurity",
       topics: ["Security Fundamentals", "Network Security", "Identity & Access (IAM)", "Endpoint Security", "Zero Trust", "SOC & SIEM", "Threat Intelligence", "Incident Response", "Ethical Hacking", "Security Awareness"] } ] },
 
-  { key: "cloudai", name: "Cloud & AI", about: "Where workloads run today, and the intelligence being built on top of them.", paths: [
+  { key: "cloud", name: "Cloud", about: "Where workloads run today: service models, hybrid and multi-cloud, security and cost.", paths: [
     { n: "04", title: "Cloud Computing", page: "cloud-computing.html", explore: "Explore Cloud",
-      topics: ["Cloud Fundamentals", "IaaS / PaaS / SaaS", "Hybrid Cloud", "Multi-Cloud", "Cloud Networking", "Cloud Security", "FinOps", "Cloud DR"] },
+      topics: ["Cloud Fundamentals", "IaaS / PaaS / SaaS", "Hybrid Cloud", "Multi-Cloud", "Cloud Networking", "Cloud Security", "FinOps", "Cloud DR"] } ] },
+
+  { key: "ai", name: "AI", about: "Artificial intelligence from first principles to generative models, RAG and agents.", paths: [
     { n: "05", title: "Artificial Intelligence", page: "artificial-intelligence.html", explore: "Explore AI",
       topics: ["AI Fundamentals", "Machine Learning", "Generative AI", "LLMs", "Prompt Engineering", "RAG", "AI Agents", "MLOps"] } ] },
 
@@ -30,7 +32,7 @@ const SITE = [
 
   { key: "ops", name: "IT Operations", about: "Keeping services running, shipping changes safely, and recovering fast.", paths: [
     { n: "09", title: "DevOps & Automation", page: "devops.html", explore: "Explore DevOps",
-      topics: ["DevOps Culture", "Version Control", "CI/CD", "Containers", "Orchestration", "Infrastructure as Code", "Scripting", "Observability"] },
+      topics: ["DevOps Culture", "Version Control", "CI/CD", "Containers", "Orchestration", { t: "Kubernetes", href: "kubernetes.html" }, "Infrastructure as Code", "Scripting", "Observability"] },
     { n: "10", title: "Backup, DR & Business Continuity", page: "backup-dr.html", explore: "Explore Backup & DR",
       topics: ["Backup Strategy", "3-2-1 Rule", "RPO & RTO", "Replication", "DR Sites", "Ransomware Recovery", "Business Continuity Plan", "DR Testing"] },
     { n: "11", title: "IT Service Management", page: "itsm.html", explore: "Explore ITSM",
@@ -47,7 +49,7 @@ const SITE = [
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const slug = s => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const here = location.pathname.split("/").pop() || "index.html";
-const currentCat = (SITE.find(c => c.paths.some(p => p.page === here)) || {}).key;
+const currentCat = (SITE.find(c => c.paths.some(p => p.page === here || p.topics.some(t => t.href === here))) || {}).key;
 
 /* ---------- header ---------- */
 function renderHeader() {
@@ -59,7 +61,7 @@ function renderHeader() {
     const cols = c.paths.map(p => `
       <div class="mp-col">
         <a class="mp-h" href="${p.page}">${esc(p.title)}</a>
-        <ul class="${c.paths.length === 1 ? "two" : ""}">${p.topics.map(t => `<li><a href="${p.page}#${slug(t)}">${esc(t)}</a></li>`).join("")}</ul>
+        <ul class="${c.paths.length === 1 ? "two" : ""}">${p.topics.map(t => typeof t === "string" ? `<li><a href="${p.page}#${slug(t)}">${esc(t)}</a></li>` : `<li><a href="${t.href}">${esc(t.t)} <span class="mp-new">Guide</span></a></li>`).join("")}</ul>
         <a class="mp-ex" href="${p.page}">${esc(p.explore)} →</a>
       </div>`).join("");
     return `<div class="mega" data-m="${c.key}" aria-hidden="true"><div class="wrap mp">
@@ -79,7 +81,7 @@ function renderHeader() {
 
   const nav = el.querySelector("#nav"), menuBtn = el.querySelector("#menuBtn");
   const btns = [...el.querySelectorAll(".nav-cat")], megas = [...el.querySelectorAll(".mega")];
-  const mobile = () => matchMedia("(max-width:1080px)").matches;
+  const mobile = () => matchMedia("(max-width:1180px)").matches;
   let open = null, t;
   const show = k => {
     open = k;

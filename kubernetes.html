@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kubernetes — Hamza IT Learning</title>
+<meta name="description" content="Kubernetes explained step by step: architecture, pods, deployments, services, storage, scaling, security, kubectl and managed Kubernetes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>IT Operations<span>/</span><a href="devops.html">DevOps &amp; Automation</a><span>/</span>Kubernetes</div>
+
+    <div class="path-hero">
+      <h1>Kubernetes</h1>
+      <p>Kubernetes (often written K8s) runs containers across many servers and keeps them healthy. This guide explains what it is, how it works, and the everyday commands — in plain language, one step at a time.</p>
+      <div class="meta"><span>Part of DevOps &amp; Automation</span><span>Level: Mid</span><span>10 topics</span><span>≈ 3 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="what-is-kubernetes">
+          <h2><small>Topic 1</small>What is Kubernetes?</h2>
+          <p>A container packages one application with everything it needs. That's easy to run on one machine. Running hundreds of containers across many servers — restarting them when they crash, spreading load, rolling out new versions without downtime — is the hard part. That is the job Kubernetes does.</p>
+          <ul class="points">
+            <li><b>Open source:</b> started at Google, now maintained by the Cloud Native Computing Foundation (CNCF).</li>
+            <li><b>Declarative:</b> you describe the state you want (“3 copies of this app”); Kubernetes keeps making it true.</li>
+            <li><b>Portable:</b> the same files run on-premises or on any major cloud.</li>
+          </ul>
+          <div class="note"><b>When you may not need it:</b> one or two small applications are often simpler on a single server or a managed app service. Kubernetes pays off when you have many services and teams.</div>
+        </section>
+
+        <section id="architecture">
+          <h2><small>Topic 2</small>Architecture</h2>
+          <p>A Kubernetes <b>cluster</b> has two parts: the control plane that makes decisions, and the worker nodes that run your containers.</p>
+          <table class="simple">
+            <tr><th>Component</th><th>Where</th><th>What it does</th></tr>
+            <tr><td><b>API server</b></td><td>Control plane</td><td>The front door; every command goes through it.</td></tr>
+            <tr><td><b>etcd</b></td><td>Control plane</td><td>Key-value store holding the whole cluster's state.</td></tr>
+            <tr><td><b>Scheduler</b></td><td>Control plane</td><td>Chooses which node each new pod runs on.</td></tr>
+            <tr><td><b>Controller manager</b></td><td>Control plane</td><td>Loops that keep actual state equal to desired state.</td></tr>
+            <tr><td><b>kubelet</b></td><td>Each node</td><td>Starts and watches the containers on that node.</td></tr>
+            <tr><td><b>kube-proxy</b></td><td>Each node</td><td>Handles networking rules for services.</td></tr>
+            <tr><td><b>Container runtime</b></td><td>Each node</td><td>Actually runs containers (e.g. containerd).</td></tr>
+          </table>
+        </section>
+
+        <section id="pods-and-deployments">
+          <h2><small>Topic 3</small>Pods and Deployments</h2>
+          <p>A <b>Pod</b> is the smallest unit Kubernetes runs: one or more containers that share network and storage. You rarely create pods directly. Instead you create a <b>Deployment</b>, which keeps the right number of pod copies (replicas) running and handles updates.</p>
+          <pre><code><span class="c"># deployment.yaml — run 3 copies of a web app</span>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: nginx:1.27
+          ports:
+            - containerPort: 80</code></pre>
+          <ul class="points">
+            <li><b>Rolling update:</b> change the image and pods are replaced gradually, with no downtime.</li>
+            <li><b>Rollback:</b> one command returns to the previous version.</li>
+            <li><b>StatefulSet</b> is used instead for databases and apps that need stable identity.</li>
+          </ul>
+        </section>
+
+        <section id="services-and-ingress">
+          <h2><small>Topic 4</small>Services and Ingress</h2>
+          <p>Pods come and go and their IP addresses change. A <b>Service</b> gives a group of pods one stable name and address, and spreads traffic across them.</p>
+          <table class="simple">
+            <tr><th>Type</th><th>Reachable from</th></tr>
+            <tr><td><b>ClusterIP</b></td><td>Inside the cluster only (the default).</td></tr>
+            <tr><td><b>NodePort</b></td><td>A fixed port on every node.</td></tr>
+            <tr><td><b>LoadBalancer</b></td><td>The internet, through a cloud load balancer.</td></tr>
+          </table>
+          <p style="margin-top:14px">An <b>Ingress</b> sits in front of services and routes web traffic by host name or path (for example <code>/api</code> to one service and <code>/</code> to another), usually with TLS certificates.</p>
+        </section>
+
+        <section id="configuration-and-secrets">
+          <h2><small>Topic 5</small>Configuration and Secrets</h2>
+          <p>Keep settings out of container images so the same image works in test and production.</p>
+          <ul class="points">
+            <li><b>ConfigMap:</b> plain settings such as URLs and feature flags.</li>
+            <li><b>Secret:</b> passwords, tokens and keys. Only base64-encoded by default — enable encryption at rest and limit who can read them.</li>
+            <li><b>Namespaces:</b> separate teams or environments (dev, test, prod) inside one cluster.</li>
+          </ul>
+        </section>
+
+        <section id="storage">
+          <h2><small>Topic 6</small>Storage</h2>
+          <p>Containers lose their files when they restart. For data that must survive, Kubernetes uses persistent volumes.</p>
+          <ul class="points">
+            <li><b>PersistentVolume (PV):</b> a piece of real storage — a cloud disk or a SAN/NAS volume.</li>
+            <li><b>PersistentVolumeClaim (PVC):</b> an app's request for storage (“10 GB, read-write”).</li>
+            <li><b>StorageClass:</b> lets Kubernetes create volumes automatically when a claim appears.</li>
+          </ul>
+        </section>
+
+        <section id="scaling-and-self-healing">
+          <h2><small>Topic 7</small>Scaling and Self-Healing</h2>
+          <p>This is where Kubernetes earns its place: it keeps applications running without someone watching all night.</p>
+          <ul class="points">
+            <li><b>Self-healing:</b> crashed containers restart; pods on a failed node move to healthy ones.</li>
+            <li><b>Health probes:</b> liveness (restart if stuck) and readiness (send traffic only when ready).</li>
+            <li><b>Horizontal Pod Autoscaler:</b> adds or removes pods based on CPU, memory or custom metrics.</li>
+            <li><b>Cluster autoscaler:</b> adds or removes nodes in the cloud as demand changes.</li>
+          </ul>
+        </section>
+
+        <section id="kubernetes-security">
+          <h2><small>Topic 8</small>Kubernetes Security</h2>
+          <p>A cluster has many moving parts, so security needs several layers.</p>
+          <ul class="points">
+            <li><b>RBAC:</b> give users and service accounts only the permissions they need.</li>
+            <li><b>Network policies:</b> by default every pod can talk to every other pod — restrict it.</li>
+            <li><b>Image security:</b> scan images, use trusted registries, avoid running as root.</li>
+            <li><b>Keep it patched:</b> upgrade the cluster version regularly; old versions lose support.</li>
+            <li><b>Audit logs</b> to see who changed what.</li>
+          </ul>
+        </section>
+
+        <section id="kubectl-essentials">
+          <h2><small>Topic 9</small>kubectl Essentials</h2>
+          <p><code>kubectl</code> is the command-line tool for talking to a cluster. These commands cover most daily work.</p>
+          <pre><code><span class="c"># see what is running</span>
+kubectl get nodes
+kubectl get pods -n my-namespace
+kubectl get deployments,services
+
+<span class="c"># apply your YAML files (create or update)</span>
+kubectl apply -f deployment.yaml
+
+<span class="c"># investigate a problem</span>
+kubectl describe pod web-7d4b9c8f6-x2k9p
+kubectl logs web-7d4b9c8f6-x2k9p
+kubectl exec -it web-7d4b9c8f6-x2k9p -- sh
+
+<span class="c"># scale, update, roll back</span>
+kubectl scale deployment web --replicas=5
+kubectl set image deployment/web web=nginx:1.28
+kubectl rollout status deployment/web
+kubectl rollout undo deployment/web</code></pre>
+          <div class="note"><b>Tip:</b> when a pod won't start, run <code>kubectl describe pod</code> first. The <b>Events</b> section at the bottom usually says exactly why — a wrong image name, missing secret, or not enough resources.</div>
+        </section>
+
+        <section id="managed-kubernetes">
+          <h2><small>Topic 10</small>Managed Kubernetes</h2>
+          <p>Running the control plane yourself is hard work. Every major cloud offers a managed service that runs it for you, so you only manage your applications and worker nodes.</p>
+          <div class="platforms">
+            <div class="platform"><b>Azure Kubernetes Service</b><span>AKS — Microsoft Azure</span></div>
+            <div class="platform"><b>Elastic Kubernetes Service</b><span>EKS — Amazon Web Services</span></div>
+            <div class="platform"><b>Container Engine for Kubernetes</b><span>OKE — Oracle Cloud</span></div>
+            <div class="platform"><b>Cloud Container Engine</b><span>CCE — Huawei Cloud</span></div>
+            <div class="platform"><b>Container Service for Kubernetes</b><span>ACK — Alibaba Cloud</span></div>
+          </div>
+          <p style="margin-top:18px"><b>To practise for free</b> on your own laptop, use a local cluster tool such as minikube or kind, then try the commands above.</p>
+        </section>
+
+        <div class="pager">
+          <a href="devops.html"><small>← Back to</small><b>DevOps &amp; Automation</b></a>
+          <a href="backup-dr.html"><small>Next path →</small><b>Backup, DR &amp; Business Continuity</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

@@ -43,7 +43,7 @@
     <div class="wrap">
       <div class="index-head rv">
         <h2>Where would you like to start?</h2>
-        <p>Seven areas, thirteen paths.</p>
+        <p>Eight areas, thirteen paths.</p>
       </div>
       <div class="cats" id="cats"></div>
     </div>
@@ -53,6 +53,7 @@
 <footer id="site-footer"></footer>
 
 <script src="menu.js"></script>
+<script src="search-index.js"></script>
 <script>
 // category index (built from the same menu data)
 document.getElementById("cats").innerHTML = SITE.map(c => `
@@ -63,35 +64,79 @@ document.getElementById("cats").innerHTML = SITE.map(c => `
   </div>`).join("");
 reveal();
 
-// topic finder
-const items = SITE.flatMap(c => c.paths.flatMap(p => [
-  { label: p.title, where: c.name, href: p.page },
-  ...p.topics.map(t => ({ label: t, where: p.title, href: p.page + "#" + slug(t) }))
-]));
+// ---------- topic finder: searches every topic's text, forgives typos ----------
+const SYN = { k8s:"kubernetes", ml:"machine learning", dr:"disaster recovery", bcp:"business continuity",
+  llm:"llms", genai:"generative ai", "gen ai":"generative ai", erp:"erp", soc:"soc", vm:"virtual machines",
+  vms:"virtual machines", db:"database", sql:"sql", iac:"infrastructure as code", "ci cd":"ci/cd", cicd:"ci/cd",
+  "zero-trust":"zero trust", firewall:"firewalls", dns:"dns", vlan:"vlans", backup:"backup" };
+const norm = s => s.toLowerCase().replace(/[^a-z0-9؀-ۿ/+ ]+/g, " ").replace(/\s+/g, " ").trim();
+function dist(a, b) {                      // edit distance, stops early when too far
+  if (Math.abs(a.length - b.length) > 2) return 9;
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++)
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length];
+}
+const DATA = SEARCH.map(i => {
+  const title = norm(i.t), body = norm(i.p + " " + i.x);
+  return { ...i, title, body, words: [...new Set((title + " " + body).split(" ").filter(w => w.length > 2))] };
+});
+// fix a typo word by finding the closest real word in the site
+const VOCAB = [...new Set(DATA.flatMap(d => d.words))];
+function fixWord(w) {
+  if (w.length < 4 || VOCAB.includes(w)) return w;
+  const max = w.length <= 5 ? 1 : 2;
+  let best = w, bd = max + 1;
+  for (const v of VOCAB) { const d = dist(w, v); if (d < bd) { bd = d; best = v; } }
+  return best;
+}
+function score(d, q, words) {
+  if (d.title === q) return 100;
+  if (d.title.startsWith(q)) return 90;
+  if (d.title.includes(q)) return 80;
+  if (words.every(w => d.title.includes(w))) return 70;
+  if (d.body.includes(q)) return 50;
+  if (words.every(w => d.title.includes(w) || d.body.includes(w))) return 30;
+  return 0;
+}
 const input = document.getElementById("find"), box = document.getElementById("results");
 let sel = 0, list = [];
 function search() {
-  const q = input.value.trim().toLowerCase();
-  if (!q) { box.classList.remove("show"); return; }
-  const score = i => { const l = i.label.toLowerCase();
-    return l.startsWith(q) ? 0 : new RegExp("\\b" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(l) ? 1 : l.includes(q) ? 2 : 3; };
-  list = items.filter(i => i.label.toLowerCase().includes(q) || i.where.toLowerCase().includes(q))
-              .sort((a, b) => score(a) - score(b)).slice(0, 8);
+  const raw = norm(input.value);
+  if (!raw) { box.classList.remove("show"); return; }
+  let q = SYN[raw] || raw;
+  let words = q.split(" ").filter(Boolean);
+  let fixed = words.map(fixWord), note = "";
+  const run = ws => { const qq = ws.join(" ");
+    return DATA.map(d => ({ d, s: score(d, qq, ws) })).filter(r => r.s > 0).sort((a, b) => b.s - a.s).slice(0, 8).map(r => r.d); };
+  list = run(words);
+  if (!list.length && fixed.join(" ") !== words.join(" ")) { list = run(fixed); if (list.length) note = fixed.join(" "); }
   sel = 0;
-  box.innerHTML = list.length
-    ? list.map((i, k) => `<a href="${i.href}" class="${k === 0 ? "sel" : ""}">${esc(i.label)}<span>${esc(i.where)}</span></a>`).join("")
-    : `<div class="none">Nothing yet for “${esc(input.value.trim())}”. Try a broader word, or browse the menu above.</div>`;
+  const snippet = d => {
+    const w = (note || q).split(" ")[0], i = d.x.toLowerCase().indexOf(w);
+    if (i < 0 || d.title.includes(w)) return "";
+    const s = d.x.slice(Math.max(0, i - 30), i + 60).replace(/^\S*\s/, "");
+    return `<em>…${esc(s)}…</em>`;
+  };
+  box.innerHTML = (note ? `<div class="none">Showing results for <b>${esc(note)}</b></div>` : "") + (list.length
+    ? list.map((i, k) => `<a href="${i.h}" class="${k === 0 ? "sel" : ""}"><div>${esc(i.t)}${snippet(i)}</div><span>${esc(i.p)}</span></a>`).join("")
+    : `<div class="none">Nothing found for “${esc(input.value.trim())}”. Try another word, or browse the menu above.</div>`);
   box.classList.add("show");
 }
 input.addEventListener("input", search);
 input.addEventListener("keydown", e => {
   if (!list.length) return;
+  const links = [...box.querySelectorAll("a")];
   if (e.key === "ArrowDown" || e.key === "ArrowUp") {
     e.preventDefault();
     sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + list.length) % list.length;
-    [...box.children].forEach((a, k) => a.classList.toggle("sel", k === sel));
+    links.forEach((a, k) => a.classList.toggle("sel", k === sel));
   }
-  if (e.key === "Enter") location.href = list[sel].href;
+  if (e.key === "Enter") location.href = list[sel].h;
 });
 document.addEventListener("click", e => { if (!document.getElementById("finder").contains(e.target)) box.classList.remove("show"); });
 document.querySelectorAll(".finder-hint button").forEach(b => b.onclick = () => { input.value = b.textContent; search(); input.focus(); });
