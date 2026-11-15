@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data &amp; Analytics — Hamza IT Learning</title>
+<meta name="description" content="Turning raw records into clear answers: collecting, cleaning, modelling and presenting data so people can make better decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Data<span>/</span>Data &amp; Analytics</div>
+
+    <div class="path-hero">
+      <h1>Data &amp; Analytics</h1>
+      <p>Turning raw records into clear answers: collecting, cleaning, modelling and presenting data so people can make better decisions.</p>
+      <div class="meta"><span>Path 06</span><span>Level: Beginner → Mid</span><span>8 topics</span><span>≈ 6 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="data-fundamentals">
+          <h2><small>Topic 1</small>Data Fundamentals</h2>
+          <p>Before analysis comes understanding what data you have and what it means.</p>
+          <ul class="points">
+            <li>Structured (tables), semi-structured (JSON) and unstructured (text, images).</li>
+            <li>Data types, keys and relationships.</li>
+            <li>Descriptive, diagnostic, predictive and prescriptive analytics.</li>
+            <li>Always ask: what decision will this analysis support?</li>
+          </ul>
+        </section>
+
+        <section id="sql-for-analysis">
+          <h2><small>Topic 2</small>SQL for Analysis</h2>
+          <p>SQL is the common language for asking questions of data.</p>
+          <ul class="points">
+            <li>SELECT, WHERE, ORDER BY to retrieve and filter.</li>
+            <li>GROUP BY with SUM, COUNT, AVG to summarise.</li>
+            <li>JOINs to combine tables.</li>
+            <li>Window functions for running totals and rankings.</li>
+          </ul>
+        </section>
+
+        <section id="data-modelling">
+          <h2><small>Topic 3</small>Data Modelling</h2>
+          <p>A good model makes data easy to query and hard to misread.</p>
+          <ul class="points">
+            <li>Facts (measurements) and dimensions (context).</li>
+            <li>Star schema for reporting.</li>
+            <li>Clear naming and one definition per metric.</li>
+            <li>Model for the questions people actually ask.</li>
+          </ul>
+        </section>
+
+        <section id="etl-and-pipelines">
+          <h2><small>Topic 4</small>ETL &amp; Pipelines</h2>
+          <p>Pipelines move data from source systems to where it is analysed.</p>
+          <ul class="points">
+            <li><b>Extract</b> from sources, <b>Transform</b> to clean and shape, <b>Load</b> into the target.</li>
+            <li>ELT loads first and transforms inside the warehouse.</li>
+            <li>Schedule, monitor and alert on failures.</li>
+            <li>Make pipelines re-runnable without creating duplicates.</li>
+          </ul>
+        </section>
+
+        <section id="warehouses-and-lakes">
+          <h2><small>Topic 5</small>Warehouses &amp; Lakes</h2>
+          <p>Where analytical data lives.</p>
+          <ul class="points">
+            <li><b>Data warehouse:</b> structured, cleaned, optimised for reporting.</li>
+            <li><b>Data lake:</b> raw data of any type, stored cheaply.</li>
+            <li><b>Lakehouse:</b> combines both approaches.</li>
+            <li>Choose based on users, data types and cost.</li>
+          </ul>
+        </section>
+
+        <section id="dashboards-and-bi">
+          <h2><small>Topic 6</small>Dashboards &amp; BI</h2>
+          <p>Dashboards put the right numbers in front of the right people.</p>
+          <ul class="points">
+            <li>Start from the decision, then choose the metrics.</li>
+            <li>A few clear charts beat many busy ones.</li>
+            <li>Consistent colours, labels and time ranges.</li>
+            <li>Show trends and targets, not just totals.</li>
+          </ul>
+        </section>
+
+        <section id="data-quality">
+          <h2><small>Topic 7</small>Data Quality</h2>
+          <p>Bad data leads to confident wrong decisions.</p>
+          <ul class="points">
+            <li>Dimensions: accuracy, completeness, consistency, timeliness.</li>
+            <li>Validate data at the point it enters the system.</li>
+            <li>Automated checks in pipelines.</li>
+            <li>Fix problems at the source, not in every report.</li>
+          </ul>
+        </section>
+
+        <section id="data-governance">
+          <h2><small>Topic 8</small>Data Governance</h2>
+          <p>Governance decides who owns data, who can use it, and how.</p>
+          <ul class="points">
+            <li>Data owners and stewards for each domain.</li>
+            <li>A shared glossary of business terms.</li>
+            <li>Access control and data classification.</li>
+            <li>Compliance with data protection rules such as PDPL.</li>
+          </ul>
+        </section>
+
+        <div class="pager">
+          <a href="artificial-intelligence.html"><small>← Previous path</small><b>Artificial Intelligence</b></a>
+          <a href="databases.html"><small>Next path →</small><b>Database Management Systems</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

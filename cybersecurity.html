@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cybersecurity — Hamza IT Learning</title>
+<meta name="description" content="Protecting systems, identities and data — and knowing exactly what to do when something goes wrong.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Security<span>/</span>Cybersecurity</div>
+
+    <div class="path-hero">
+      <h1>Cybersecurity</h1>
+      <p>Protecting systems, identities and data — and knowing exactly what to do when something goes wrong.</p>
+      <div class="meta"><span>Path 03</span><span>Level: Beginner → Practitioner</span><span>10 topics</span><span>≈ 8 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="security-fundamentals">
+          <h2><small>Topic 1</small>Security Fundamentals</h2>
+          <p>Security starts with a few ideas that apply everywhere.</p>
+          <ul class="points">
+            <li><b>CIA triad:</b> Confidentiality, Integrity, Availability.</li>
+            <li>Threat, vulnerability and risk are different things.</li>
+            <li>Defence in depth: several layers, never one wall.</li>
+            <li>Least privilege: give only the access that is needed.</li>
+          </ul>
+        </section>
+
+        <section id="network-security">
+          <h2><small>Topic 2</small>Network Security</h2>
+          <p>Controlling what can reach what, and spotting traffic that shouldn't be there.</p>
+          <ul class="points">
+            <li>Firewalls and next-generation firewalls.</li>
+            <li>Segmentation to limit how far an attacker can move.</li>
+            <li>IDS / IPS to detect and block known attacks.</li>
+            <li>Secure remote access with VPN or ZTNA.</li>
+          </ul>
+        </section>
+
+        <section id="identity-and-access-iam">
+          <h2><small>Topic 3</small>Identity &amp; Access (IAM)</h2>
+          <p>Most breaches start with a stolen or misused identity, so identity is the new perimeter.</p>
+          <ul class="points">
+            <li>Authentication (who you are) vs authorization (what you can do).</li>
+            <li>Multi-factor authentication for every user.</li>
+            <li>Privileged access management for admin accounts.</li>
+            <li>Joiner, mover, leaver processes to keep access clean.</li>
+          </ul>
+        </section>
+
+        <section id="endpoint-security">
+          <h2><small>Topic 4</small>Endpoint Security</h2>
+          <p>Laptops, servers and phones are where attacks usually land.</p>
+          <ul class="points">
+            <li>EDR tools that detect and respond, not just antivirus.</li>
+            <li>Patching and secure configuration baselines.</li>
+            <li>Disk encryption and device management.</li>
+            <li>Application control to block unknown software.</li>
+          </ul>
+        </section>
+
+        <section id="zero-trust">
+          <h2><small>Topic 5</small>Zero Trust</h2>
+          <p>Zero Trust means never assuming trust because of network location. Every request is verified.</p>
+          <ul class="points">
+            <li>Verify explicitly: identity, device health, context.</li>
+            <li>Least-privilege access, granted just in time.</li>
+            <li>Assume breach: segment and monitor everything.</li>
+            <li>A journey of many small steps, not a single product.</li>
+          </ul>
+        </section>
+
+        <section id="soc-and-siem">
+          <h2><small>Topic 6</small>SOC &amp; SIEM</h2>
+          <p>The Security Operations Center watches the organisation around the clock. The SIEM is its central tool.</p>
+          <ul class="points">
+            <li>SIEM collects and correlates logs from many sources.</li>
+            <li>Use cases and alert rules mapped to MITRE ATT&amp;CK.</li>
+            <li>Analyst tiers: triage, investigation, threat hunting.</li>
+            <li>SOAR automates repetitive response steps.</li>
+          </ul>
+        </section>
+
+        <section id="threat-intelligence">
+          <h2><small>Topic 7</small>Threat Intelligence</h2>
+          <p>Knowing who is likely to attack, how, and with what — so defences focus on real threats.</p>
+          <ul class="points">
+            <li>Indicators of compromise: IPs, domains, file hashes.</li>
+            <li>Tactics, techniques and procedures (TTPs).</li>
+            <li>Strategic, operational and tactical intelligence.</li>
+            <li>Sharing with trusted communities and sector CERTs.</li>
+          </ul>
+        </section>
+
+        <section id="incident-response">
+          <h2><small>Topic 8</small>Incident Response</h2>
+          <p>A calm, rehearsed process for when an attack happens.</p>
+          <ul class="points">
+            <li><b>Prepare</b> — plans, contacts, tools.</li>
+            <li><b>Detect &amp; analyse</b> — confirm and scope the incident.</li>
+            <li><b>Contain, eradicate, recover</b> — stop the spread, clean up, restore.</li>
+            <li><b>Lessons learned</b> — improve so it doesn't happen again.</li>
+          </ul>
+        </section>
+
+        <section id="ethical-hacking">
+          <h2><small>Topic 9</small>Ethical Hacking</h2>
+          <p>Testing systems the way an attacker would — with permission — to find weaknesses first.</p>
+          <ul class="points">
+            <li>Phases: reconnaissance, scanning, exploitation, reporting.</li>
+            <li>Vulnerability assessment vs penetration testing.</li>
+            <li>Clear scope and written authorisation, always.</li>
+            <li>The report and fixes matter more than the exploit.</li>
+          </ul>
+        </section>
+
+        <section id="security-awareness">
+          <h2><small>Topic 10</small>Security Awareness</h2>
+          <p>People are both the biggest risk and the strongest defence.</p>
+          <ul class="points">
+            <li>Recognising phishing and social engineering.</li>
+            <li>Strong passwords and password managers.</li>
+            <li>Reporting suspicious activity quickly, without blame.</li>
+            <li>Short, regular training beats one long annual session.</li>
+          </ul>
+        </section>
+
+        <div class="pager">
+          <a href="networking.html"><small>← Previous path</small><b>Networking &amp; Connectivity</b></a>
+          <a href="cloud-computing.html"><small>Next path →</small><b>Cloud Computing</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

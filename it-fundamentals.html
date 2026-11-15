@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT Fundamentals &amp; Infrastructure — Hamza IT Learning</title>
+<meta name="description" content="How computers, servers and operating systems work, how they are virtualized and stored, and how to troubleshoot them calmly and methodically.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Infrastructure<span>/</span>IT Fundamentals &amp; Infrastructure</div>
+
+    <div class="path-hero">
+      <h1>IT Fundamentals &amp; Infrastructure</h1>
+      <p>How computers, servers and operating systems work, how they are virtualized and stored, and how to troubleshoot them calmly and methodically.</p>
+      <div class="meta"><span>Path 01</span><span>Level: Beginner</span><span>8 topics</span><span>≈ 5 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="hardware-and-components">
+          <h2><small>Topic 1</small>Hardware &amp; Components</h2>
+          <p>Every computer, from a laptop to a data-center server, is built from the same core parts. Knowing what each one does makes upgrades and fault-finding far easier.</p>
+          <ul class="points">
+            <li><b>CPU:</b> executes instructions; cores and clock speed set its capacity.</li>
+            <li><b>RAM:</b> fast, temporary working memory, cleared on power-off.</li>
+            <li><b>Storage:</b> HDDs and SSDs keep data permanently.</li>
+            <li><b>Motherboard, power supply and network card</b> connect everything together.</li>
+          </ul>
+        </section>
+
+        <section id="operating-systems">
+          <h2><small>Topic 2</small>Operating Systems</h2>
+          <p>The operating system sits between the hardware and the applications. It manages memory, processes, files, devices and users.</p>
+          <ul class="points">
+            <li>Desktop and server editions of Windows and Linux.</li>
+            <li>Processes, services and scheduling.</li>
+            <li>File systems, permissions and user accounts.</li>
+            <li>Updates and patching as a routine, not an emergency.</li>
+          </ul>
+        </section>
+
+        <section id="server-administration">
+          <h2><small>Topic 3</small>Server Administration</h2>
+          <p>A server provides a service to many users at once — files, email, websites, databases. Administering it means keeping it available, secure and up to date.</p>
+          <ul class="points">
+            <li>Installing and hardening a server.</li>
+            <li>Managing roles, services and scheduled tasks.</li>
+            <li>Monitoring CPU, memory, disk and logs.</li>
+            <li>Documenting every change you make.</li>
+          </ul>
+        </section>
+
+        <section id="directory-services">
+          <h2><small>Topic 4</small>Directory Services</h2>
+          <p>A directory service is the central list of users, computers and groups in an organisation, and the rules that apply to them.</p>
+          <ul class="points">
+            <li>Single sign-on: one account for many systems.</li>
+            <li>Groups and policies to apply settings at scale.</li>
+            <li>Domain controllers and replication.</li>
+            <li>Joining computers and users to the domain.</li>
+          </ul>
+        </section>
+
+        <section id="virtualization">
+          <h2><small>Topic 5</small>Virtualization</h2>
+          <p>Virtualization runs many virtual machines on one physical server. A hypervisor shares the hardware between them while keeping each one isolated.</p>
+          <ul class="points">
+            <li><b>Type 1 hypervisors</b> run directly on the hardware — the norm in data centers.</li>
+            <li>Snapshots, cloning and templates speed up delivery.</li>
+            <li>Live migration moves running VMs between hosts.</li>
+            <li>Containers are a lighter alternative for applications.</li>
+          </ul>
+        </section>
+
+        <section id="storage-san-nas">
+          <h2><small>Topic 6</small>Storage (SAN / NAS)</h2>
+          <p>Enterprise storage is shared over the network instead of living inside each server.</p>
+          <ul class="points">
+            <li><b>NAS</b> shares files over the network (SMB, NFS).</li>
+            <li><b>SAN</b> provides block storage over a dedicated network (Fibre Channel, iSCSI).</li>
+            <li>RAID protects against disk failure — it is not a backup.</li>
+            <li>Tiering puts hot data on fast disks and cold data on cheap ones.</li>
+          </ul>
+        </section>
+
+        <section id="data-center-basics">
+          <h2><small>Topic 7</small>Data Center Basics</h2>
+          <p>A data center is the physical home of servers, storage and network equipment. Its design is about keeping that equipment powered, cool and secure.</p>
+          <ul class="points">
+            <li>Redundant power: UPS units and generators.</li>
+            <li>Cooling and hot/cold aisle layout.</li>
+            <li>Racks, cabling and labelling standards.</li>
+            <li>Physical access control and monitoring.</li>
+          </ul>
+        </section>
+
+        <section id="troubleshooting">
+          <h2><small>Topic 8</small>Troubleshooting</h2>
+          <p>Good troubleshooting is a method, not luck. Work from symptoms to cause one step at a time.</p>
+          <ul class="points">
+            <li>Define the problem and when it started.</li>
+            <li>Gather information: logs, recent changes, who is affected.</li>
+            <li>Form a hypothesis, test it, change one thing at a time.</li>
+            <li>Fix, verify, then document what you learned.</li>
+          </ul>
+        </section>
+
+        <div class="pager">
+          <a href="index.html"><small>← Back to</small><b>Home</b></a>
+          <a href="networking.html"><small>Next path →</small><b>Networking &amp; Connectivity</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

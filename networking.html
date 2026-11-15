@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Networking &amp; Connectivity — Hamza IT Learning</title>
+<meta name="description" content="How data moves from one device to another — from the cable in the wall to the edge of the cloud — and the services that keep networks working.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Infrastructure<span>/</span>Networking &amp; Connectivity</div>
+
+    <div class="path-hero">
+      <h1>Networking &amp; Connectivity</h1>
+      <p>How data moves from one device to another — from the cable in the wall to the edge of the cloud — and the services that keep networks working.</p>
+      <div class="meta"><span>Path 02</span><span>Level: Beginner → Mid</span><span>8 topics</span><span>≈ 6 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="osi-and-tcp-ip">
+          <h2><small>Topic 1</small>OSI &amp; TCP/IP</h2>
+          <p>Network models split communication into layers so each problem can be understood on its own.</p>
+          <ul class="points">
+            <li><b>OSI:</b> 7 layers — Physical, Data Link, Network, Transport, Session, Presentation, Application.</li>
+            <li><b>TCP/IP:</b> the 4-layer model the internet actually uses.</li>
+            <li>TCP is reliable and ordered; UDP is fast and lightweight.</li>
+            <li>Troubleshoot bottom-up: cable first, application last.</li>
+          </ul>
+        </section>
+
+        <section id="ip-addressing-and-subnetting">
+          <h2><small>Topic 2</small>IP Addressing &amp; Subnetting</h2>
+          <p>Every device needs an IP address. Subnetting divides a network into smaller, manageable pieces.</p>
+          <ul class="points">
+            <li>IPv4 is 32 bits (e.g. 192.168.1.10); IPv6 is 128 bits.</li>
+            <li>The subnet mask (or /24 prefix) separates network and host parts.</li>
+            <li>Private ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.</li>
+            <li>NAT lets many private devices share one public address.</li>
+          </ul>
+        </section>
+
+        <section id="switching-and-vlans">
+          <h2><small>Topic 3</small>Switching &amp; VLANs</h2>
+          <p>Switches connect devices inside the same network and forward frames using MAC addresses.</p>
+          <ul class="points">
+            <li>Switches learn which MAC address sits on which port.</li>
+            <li><b>VLANs</b> split one physical switch into separate logical networks.</li>
+            <li>Trunk links carry several VLANs between switches.</li>
+            <li>Spanning Tree prevents loops in redundant designs.</li>
+          </ul>
+        </section>
+
+        <section id="routing">
+          <h2><small>Topic 4</small>Routing</h2>
+          <p>Routers connect different networks and choose the path each packet should take.</p>
+          <ul class="points">
+            <li>The routing table lists known networks and next hops.</li>
+            <li>Static routes are set by hand; dynamic routes are learned.</li>
+            <li>OSPF is common inside organisations; BGP runs the internet.</li>
+            <li>The default gateway is where a device sends unknown traffic.</li>
+          </ul>
+        </section>
+
+        <section id="dns-and-dhcp">
+          <h2><small>Topic 5</small>DNS &amp; DHCP</h2>
+          <p>Two quiet services that every network depends on.</p>
+          <ul class="points">
+            <li><b>DNS</b> turns names (example.com) into IP addresses.</li>
+            <li>Record types: A, AAAA, CNAME, MX, TXT.</li>
+            <li><b>DHCP</b> hands out IP addresses, gateways and DNS settings automatically.</li>
+            <li>When “the internet is down”, check DNS early.</li>
+          </ul>
+        </section>
+
+        <section id="wireless">
+          <h2><small>Topic 6</small>Wireless</h2>
+          <p>Wi-Fi brings the network to devices without cables, at the cost of shared airtime and more security exposure.</p>
+          <ul class="points">
+            <li>Standards such as Wi-Fi 6 and 6E, and the 2.4, 5 and 6 GHz bands.</li>
+            <li>Channel planning to reduce interference.</li>
+            <li>WPA3 and enterprise authentication (802.1X).</li>
+            <li>Controllers to manage many access points centrally.</li>
+          </ul>
+        </section>
+
+        <section id="wan-and-sd-wan">
+          <h2><small>Topic 7</small>WAN &amp; SD-WAN</h2>
+          <p>A WAN connects sites that are far apart — branches, data centers and the cloud.</p>
+          <ul class="points">
+            <li>Traditional links: MPLS, leased lines, VPNs over the internet.</li>
+            <li><b>SD-WAN</b> steers traffic across several links by application and quality.</li>
+            <li>Central policy instead of configuring each router by hand.</li>
+            <li>Lower cost and faster rollout for new branches.</li>
+          </ul>
+        </section>
+
+        <section id="network-monitoring">
+          <h2><small>Topic 8</small>Network Monitoring</h2>
+          <p>You can't fix what you can't see. Monitoring shows health, capacity and problems before users report them.</p>
+          <ul class="points">
+            <li>Availability checks and alerting.</li>
+            <li>SNMP and flow data for traffic and bandwidth.</li>
+            <li>Syslog for device events.</li>
+            <li>Baselines so you know what “normal” looks like.</li>
+          </ul>
+        </section>
+
+        <div class="pager">
+          <a href="it-fundamentals.html"><small>← Previous path</small><b>IT Fundamentals &amp; Infrastructure</b></a>
+          <a href="cybersecurity.html"><small>Next path →</small><b>Cybersecurity</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

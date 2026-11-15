@@ -108,7 +108,7 @@ function renderFooter() {
   el.className = "site-footer";
   el.innerHTML = `<div class="wrap">
     <span>© ${new Date().getFullYear()} Hamza IT Learning · Made in Riyadh</span>
-    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a></nav>
   </div>`;
 }
 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backup, DR &amp; Business Continuity — Hamza IT Learning</title>
+<meta name="description" content="Making sure the organisation can keep working — or recover quickly — when systems fail, data is lost or an attack hits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>IT Operations<span>/</span>Backup, DR &amp; Business Continuity</div>
+
+    <div class="path-hero">
+      <h1>Backup, DR &amp; Business Continuity</h1>
+      <p>Making sure the organisation can keep working — or recover quickly — when systems fail, data is lost or an attack hits.</p>
+      <div class="meta"><span>Path 10</span><span>Level: Mid</span><span>8 topics</span><span>≈ 5 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="backup-strategy">
+          <h2><small>Topic 1</small>Backup Strategy</h2>
+          <p>A backup strategy answers: what do we protect, how often, for how long, and where?</p>
+          <ul class="points">
+            <li>Classify systems and data by importance.</li>
+            <li>Full, incremental and differential backups.</li>
+            <li>Retention periods based on business and legal needs.</li>
+            <li>Automate, monitor and report on every job.</li>
+          </ul>
+        </section>
+
+        <section id="3-2-1-rule">
+          <h2><small>Topic 2</small>3-2-1 Rule</h2>
+          <p>A simple rule that survives most disasters.</p>
+          <ul class="points">
+            <li><b>3</b> copies of your data.</li>
+            <li><b>2</b> different types of storage.</li>
+            <li><b>1</b> copy off-site.</li>
+            <li>Modern extension: 3-2-1-1-0 — one offline or immutable copy, zero restore errors.</li>
+          </ul>
+        </section>
+
+        <section id="rpo-and-rto">
+          <h2><small>Topic 3</small>RPO &amp; RTO</h2>
+          <p>Two numbers that drive every recovery design.</p>
+          <ul class="points">
+            <li><b>RPO</b> (Recovery Point Objective): how much data loss is acceptable.</li>
+            <li><b>RTO</b> (Recovery Time Objective): how long the service can be down.</li>
+            <li>Agree them with the business, system by system.</li>
+            <li>Lower RPO and RTO cost more — spend where it matters.</li>
+          </ul>
+        </section>
+
+        <section id="replication">
+          <h2><small>Topic 4</small>Replication</h2>
+          <p>Copying data continuously to another location so it's ready when needed.</p>
+          <ul class="points">
+            <li>Storage, database or application-level replication.</li>
+            <li>Synchronous vs asynchronous.</li>
+            <li>Replication copies mistakes too — it is not a backup.</li>
+            <li>Keep backups alongside replication.</li>
+          </ul>
+        </section>
+
+        <section id="dr-sites">
+          <h2><small>Topic 5</small>DR Sites</h2>
+          <p>Where you recover to when the main site is lost.</p>
+          <ul class="points">
+            <li><b>Cold site:</b> space and power, little else — slow to start.</li>
+            <li><b>Warm site:</b> partly ready — hours to start.</li>
+            <li><b>Hot site:</b> running and ready — minutes.</li>
+            <li>Cloud regions are now a common DR site.</li>
+          </ul>
+        </section>
+
+        <section id="ransomware-recovery">
+          <h2><small>Topic 6</small>Ransomware Recovery</h2>
+          <p>Ransomware targets backups first, so recovery must be planned for it.</p>
+          <ul class="points">
+            <li>Immutable or offline backup copies.</li>
+            <li>Separate credentials for backup systems.</li>
+            <li>Scan restored data before going live.</li>
+            <li>An isolated clean-room environment for recovery.</li>
+          </ul>
+        </section>
+
+        <section id="business-continuity-plan">
+          <h2><small>Topic 7</small>Business Continuity Plan</h2>
+          <p>The BCP covers people and processes, not only IT systems.</p>
+          <ul class="points">
+            <li>Business impact analysis: which processes matter most.</li>
+            <li>Alternate ways of working during disruption.</li>
+            <li>Communication plans and contact lists.</li>
+            <li>Clear roles and decision authority.</li>
+          </ul>
+        </section>
+
+        <section id="dr-testing">
+          <h2><small>Topic 8</small>DR Testing</h2>
+          <p>An untested plan is just a hopeful document.</p>
+          <ul class="points">
+            <li>Tabletop exercises to walk through the plan.</li>
+            <li>Partial and full failover tests.</li>
+            <li>Measure actual RTO and RPO against targets.</li>
+            <li>Update the plan after every test.</li>
+          </ul>
+        </section>
+
+        <div class="pager">
+          <a href="devops.html"><small>← Previous path</small><b>DevOps &amp; Automation</b></a>
+          <a href="itsm.html"><small>Next path →</small><b>IT Service Management</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>

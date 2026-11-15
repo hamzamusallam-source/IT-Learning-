@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artificial Intelligence — Hamza IT Learning</title>
+<meta name="description" content="From the basic ideas behind AI to generative models, RAG and agents — and how to run AI responsibly inside an organisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Home</a><span>/</span>Cloud &amp; AI<span>/</span>Artificial Intelligence</div>
+
+    <div class="path-hero">
+      <h1>Artificial Intelligence</h1>
+      <p>From the basic ideas behind AI to generative models, RAG and agents — and how to run AI responsibly inside an organisation.</p>
+      <div class="meta"><span>Path 05</span><span>Level: Beginner → Mid</span><span>8 topics</span><span>≈ 7 weeks</span></div>
+    </div>
+
+    <div class="path">
+      <aside class="toc" id="toc"></aside>
+
+      <article class="article">
+
+        <section id="ai-fundamentals">
+          <h2><small>Topic 1</small>AI Fundamentals</h2>
+          <p>Artificial Intelligence is the field of building systems that perform tasks that normally need human intelligence: understanding language, recognising images, predicting outcomes and making decisions.</p>
+          <ul class="points">
+            <li><b>AI</b> is the broad goal; <b>machine learning</b> is the main way we achieve it today.</li>
+            <li><b>Narrow AI</b> does one task well — all AI in use today is narrow.</li>
+            <li><b>General AI (AGI)</b> — human-level ability across tasks — is still theoretical.</li>
+            <li>Good data matters more than clever algorithms.</li>
+          </ul>
+        </section>
+
+        <section id="machine-learning">
+          <h2><small>Topic 2</small>Machine Learning</h2>
+          <p>Machine learning systems learn patterns from data instead of following hand-written rules.</p>
+          <ul class="points">
+            <li><b>Supervised:</b> learn from labelled examples (spam / not spam).</li>
+            <li><b>Unsupervised:</b> find structure in unlabelled data (customer groups).</li>
+            <li><b>Reinforcement:</b> learn by trial, reward and penalty.</li>
+            <li>Split data into training and test sets to measure real accuracy.</li>
+          </ul>
+        </section>
+
+        <section id="generative-ai">
+          <h2><small>Topic 3</small>Generative AI</h2>
+          <p>Generative AI creates new content — text, images, code, audio — rather than only classifying or predicting.</p>
+          <ul class="points">
+            <li>Built on deep neural networks trained on very large datasets.</li>
+            <li>Use cases: drafting, summarising, coding help, search, design.</li>
+            <li>Outputs can be confident and wrong, so review them.</li>
+            <li>Data privacy and intellectual property need clear policies.</li>
+          </ul>
+        </section>
+
+        <section id="llms">
+          <h2><small>Topic 4</small>LLMs</h2>
+          <p>Large Language Models predict the next piece of text, one token at a time. At scale, this produces surprisingly capable assistants.</p>
+          <ul class="points">
+            <li>Text is split into tokens; the context window limits how much fits.</li>
+            <li>Pre-training on broad text, then fine-tuning for behaviour.</li>
+            <li>They don't “look things up” unless connected to tools or data.</li>
+            <li>Temperature controls how creative or predictable answers are.</li>
+          </ul>
+        </section>
+
+        <section id="prompt-engineering">
+          <h2><small>Topic 5</small>Prompt Engineering</h2>
+          <p>Clear instructions get better results. Prompting is the skill of explaining a task well to a model.</p>
+          <ul class="points">
+            <li>Give context, the goal, and the format you want.</li>
+            <li>Show examples of good output.</li>
+            <li>Break complex tasks into steps.</li>
+            <li>Test prompts on several inputs, not just one.</li>
+          </ul>
+        </section>
+
+        <section id="rag">
+          <h2><small>Topic 6</small>RAG</h2>
+          <p>Retrieval-Augmented Generation lets a model answer questions using your own documents.</p>
+          <ul class="points">
+            <li>Documents are split into chunks and turned into embeddings.</li>
+            <li>A vector search finds the passages most relevant to the question.</li>
+            <li>Those passages are given to the LLM as context.</li>
+            <li>The answer can cite its sources — and stays up to date without retraining.</li>
+          </ul>
+        </section>
+
+        <section id="ai-agents">
+          <h2><small>Topic 7</small>AI Agents</h2>
+          <p>An agent is an AI system that can plan steps and use tools — search, APIs, code — to complete a task, not just answer a question.</p>
+          <ul class="points">
+            <li>Loop: plan → act with a tool → observe → continue.</li>
+            <li>Tools give agents real capabilities, and real risks.</li>
+            <li>Limit permissions and keep a human approval step for important actions.</li>
+            <li>Log every action for review.</li>
+          </ul>
+        </section>
+
+        <section id="mlops">
+          <h2><small>Topic 8</small>MLOps</h2>
+          <p>MLOps brings DevOps discipline to machine learning so models can be deployed and maintained reliably.</p>
+          <ul class="points">
+            <li>Version data, code and models together.</li>
+            <li>Automated training, testing and deployment pipelines.</li>
+            <li>Monitor for drift: real-world data changes over time.</li>
+            <li>Governance: who approved this model, and on what data?</li>
+          </ul>
+        </section>
+
+        <section id="ai-platforms" data-title="AI platforms">
+          <h2><small>Next step</small>AI platforms</h2>
+          <p>Once the concepts are clear, pick the platform you use at work and go deeper. Each one applies the same ideas with its own names and tools.</p>
+          <div class="platforms">
+            <div class="platform"><b>Microsoft Copilot</b><span>AI assistance across Microsoft 365 apps.</span></div>
+            <div class="platform"><b>Azure AI</b><span>Microsoft's services for building AI applications.</span></div>
+            <div class="platform"><b>Amazon Bedrock</b><span>Access to foundation models on AWS.</span></div>
+            <div class="platform"><b>Google Vertex AI</b><span>Google Cloud's platform for building and running models.</span></div>
+          </div>
+        </section>
+
+        <div class="pager">
+          <a href="cloud-computing.html"><small>← Previous path</small><b>Cloud Computing</b></a>
+          <a href="data-analytics.html"><small>Next path →</small><b>Data &amp; Analytics</b></a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="menu.js"></script>
+</body>
+</html>
