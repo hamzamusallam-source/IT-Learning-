@@ -1,210 +1,635 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hamza IT Learning | Technology Knowledge Hub</title>
-<meta name="description" content="Hamza IT Learning: practical learning paths in IT infrastructure, networking, databases, cloud, Azure, Oracle, cybersecurity, digital transformation and artificial intelligence.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamza IT Learning — Technology, explained properly</title>
+<meta name="description" content="Structured learning paths for IT, cybersecurity, AI, cloud, data and digital transformation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1A2330;--text:#4A5565;--muted:#707B8A;--bg:#E9ECEF;--line:#C9D0D8;--panel:#272D34;--amber:#E8A900}
-*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#16130f;
+  --ink-2:#4a4339;
+  --ink-3:#8a8175;
+  --paper:#f6f2ea;
+  --paper-2:#efe9de;
+  --line:#dcd3c4;
+  --brand:#c4412a;
+  --brand-ink:#9e3220;
+  --night:#14171a;
+  --night-2:#1d2125;
+  --moss:#3d5a45;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Barlow,"Segoe UI",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.cond{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif}
+img{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.02em}
+.kicker{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--brand)}
+hr.rule{border:0;border-top:1px solid var(--line)}
 
-/* header */
-header.site{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;z-index:50;background:rgba(233,236,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px;font-family:"Barlow Condensed",Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
-.brand svg{width:38px;height:38px}
-.brand i{font-style:normal;color:var(--muted);font-weight:600}
-nav.main{display:flex;gap:34px}
-nav.main a{font-weight:600;font-size:15px;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
-nav.main a:hover{border-bottom-color:var(--ink)}
-.menu-btn{display:none;border:0;background:none;font-size:28px;cursor:pointer;color:var(--ink)}
+/* ---------- header ---------- */
+header.top{position:sticky;top:0;z-index:20;background:rgba(246,242,234,.92);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.logo-mark{width:34px;height:34px;background:var(--brand);border-radius:7px;display:grid;place-items:center}
+.logo-mark span{display:block;width:16px;height:2.5px;background:#fff;border-radius:2px;box-shadow:0 -5px 0 #fff,0 5px 0 #fff}
+.logo b{color:var(--brand);font-weight:600}
+nav.main{display:flex;gap:30px;font-size:15px;color:var(--ink-2)}
+nav.main a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;padding:10px 18px;border-radius:4px;border:1px solid var(--ink);transition:background .15s,color .15s}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:var(--brand);border-color:var(--brand)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.menu-toggle{display:none;background:none;border:0;font:inherit;cursor:pointer}
 
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:60px;align-items:center;padding:70px 7% 80px;min-height:calc(100vh - 76px)}
-.hero h1{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;font-weight:800;font-size:clamp(54px,8.4vw,118px);line-height:.92;letter-spacing:-.01em;margin-bottom:26px}
-.hero p{font-size:19px;color:var(--text);max-width:34em;margin-bottom:34px}
-.actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 26px;font-weight:600;font-size:16px;border-radius:4px;border:2px solid var(--ink);transition:background .2s,color .2s}
-.btn-solid{background:var(--ink);color:#fff}.btn-solid:hover{background:#000}
-.btn-line:hover{background:var(--ink);color:#fff}
+/* ---------- hero ---------- */
+.hero{padding:84px 0 72px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(44px,6.2vw,82px);line-height:1.02;letter-spacing:-.025em;margin:18px 0 26px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--brand)}
+.hero p.lede{font-size:19px;color:var(--ink-2);max-width:540px}
+.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.hero-note{margin-top:42px;display:flex;gap:28px;flex-wrap:wrap;color:var(--ink-3)}
+.hero-note span::before{content:"— ";color:var(--brand)}
 
-/* rack */
-.rack-wrap{max-width:470px;width:100%;justify-self:end}
-.rack{list-style:none;background:#1A1E23;border-radius:8px;padding:14px 14px 14px 8px;display:grid;gap:6px;box-shadow:0 28px 50px -26px rgba(26,35,48,.6)}
-.rack li{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:8px}
-.u{color:#7D8894;font-size:13px;font-weight:600;text-align:right}
-.unit{display:flex;align-items:center;gap:14px;height:54px;padding:0 16px;background:var(--panel);border:1px solid #38414A;border-radius:3px;color:#EEF1F4;transition:background .2s}
-.unit:hover{background:#333B44}
-.led{width:9px;height:9px;border-radius:50%;background:var(--c);opacity:.3;flex:none;transition:opacity .35s,box-shadow .35s}
-.on .led,.unit:hover .led,.unit:focus-visible .led{opacity:1;box-shadow:0 0 10px 1px var(--c)}
-.unit .name{flex:1;font-family:"Barlow Condensed",Arial,sans-serif;font-weight:600;font-size:22px;letter-spacing:.01em;line-height:1}
-.ports{display:flex;gap:4px}.ports i{width:9px;height:7px;background:#12161A;border:1px solid #444D57;border-radius:1px}
-.unit:focus-visible{outline-color:#fff}
-.rack-wrap figcaption{font-size:14px;color:var(--muted);margin-top:14px;max-width:30em}
+.term{background:var(--night);color:#d8d3c8;border-radius:8px;font-family:var(--mono);font-size:13.5px;line-height:1.75;box-shadow:0 1px 0 #000,0 30px 60px -30px rgba(20,23,26,.55);transform:rotate(.6deg)}
+.term-bar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #2b3035;color:#7c8186;font-size:12px}
+.term-bar i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#3a3f44;margin-right:6px}
+.term-body{padding:18px 20px 22px}
+.term .p{color:#e0866f}
+.term .c{color:#6f777e}
+.term .g{color:#a9c5a0}
+.term .y{color:#e6c88a}
+.cursor{display:inline-block;width:8px;height:15px;background:#d8d3c8;vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 
-/* topics */
-.wrap{padding:90px 7% 0}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
-.sec-head h2{font-family:"Barlow Condensed",Arial,sans-serif;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:1;max-width:14em}
-.sec-head p{color:var(--text);max-width:30em}
-.search input{width:min(340px,100%);height:48px;border:2px solid var(--ink);background:transparent;border-radius:4px;padding:0 16px;font:inherit;font-size:16px;color:var(--ink)}
-.search input::placeholder{color:var(--muted)}
-.group{margin-bottom:34px}
-.group h3{font-family:"Barlow Condensed",Arial,sans-serif;font-size:22px;font-weight:700;color:var(--muted);margin-bottom:6px}
-.row{display:grid;grid-template-columns:8px 48px minmax(0,1.05fr) minmax(0,1.2fr);gap:22px;align-items:center;padding:22px 22px 22px 0;border-top:1px solid var(--line);transition:background .2s}
-.row:last-child{border-bottom:1px solid var(--line)}
-.row:hover{background:rgba(255,255,255,.65)}
-.row .bar{align-self:stretch;background:var(--c);border-radius:0 3px 3px 0;transform-origin:left;transition:transform .2s}
-.row:hover .bar{transform:scaleX(1.8)}
-.ico{width:48px;height:48px;border:2px solid var(--c);border-radius:8px;color:var(--c);display:flex;align-items:center;justify-content:center}
-.ico svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.row h4{font-family:"Barlow Condensed",Arial,sans-serif;font-size:32px;font-weight:700;line-height:1.05;margin-bottom:4px}
-.row:hover h4{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.row .d{font-size:15.5px;color:var(--text)}
-.row .br{font-size:15px;color:var(--muted)}
-.none{display:none;padding:30px 0;color:var(--muted)}
+/* ---------- topic strip ---------- */
+.strip{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.strip-track{display:inline-block;animation:scroll 60s linear infinite}
+.strip-track span{margin:0 22px}
+.strip-track span.d{color:var(--brand)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* journey */
-.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:22px;counter-reset:s}
-.steps li{border-top:6px solid var(--c);padding-top:18px}
-.steps .n{font-family:"Barlow Condensed",Arial,sans-serif;font-weight:800;font-size:54px;line-height:1;color:var(--c);margin-bottom:8px}
-.steps h3{font-family:"Barlow Condensed",Arial,sans-serif;font-size:25px;font-weight:700;line-height:1.1;margin-bottom:8px}
-.steps p{font-size:15.5px;color:var(--text);margin-bottom:10px}
-.steps .rel{font-size:14.5px;font-weight:600}
-.steps .rel a{border-bottom:1.5px solid var(--ink)}
-.steps .rel a:hover{background:var(--ink);color:#fff}
+/* ---------- section heads ---------- */
+section.block{padding:96px 0}
+.sec-head{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:48px}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,3.8vw,48px);line-height:1.08;letter-spacing:-.02em}
+.sec-head p{color:var(--ink-2);margin-top:14px;max-width:620px}
 
-/* about */
-.about{margin-top:100px;background:var(--ink);color:#E8ECF1;padding:80px 7%}
-.about-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.about h2{font-family:"Barlow Condensed",Arial,sans-serif;font-weight:800;font-size:clamp(36px,4.6vw,56px);line-height:1}
-.about p{color:#B9C2CE;margin-bottom:16px;max-width:34em}
-.about .btn{border-color:#fff;color:#fff;margin-top:8px}.about .btn:hover{background:#fff;color:var(--ink)}
-footer{padding:28px 7%;font-size:14px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* ---------- catalogue ---------- */
+.cat-tools{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:12.5px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink-2);cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.search{display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:6px 2px;min-width:260px}
+.search input{border:0;background:transparent;font:inherit;font-size:15px;outline:none;width:100%;color:var(--ink)}
+.search svg{flex:none}
 
-@media(max-width:980px){
- .hero{grid-template-columns:1fr;gap:44px;min-height:0;padding:50px 7% 60px}
- .rack-wrap{justify-self:start}
- .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
- .about-in{grid-template-columns:1fr;gap:26px}
+.tracks{border-top:2px solid var(--ink)}
+.track{display:grid;grid-template-columns:64px 1.1fr 1.4fr 120px 28px;gap:24px;align-items:start;padding:26px 6px;border-bottom:1px solid var(--line);transition:background .15s;cursor:pointer}
+.track:hover{background:var(--paper-2)}
+.track .n{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:6px}
+.track h3{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.track h3 small{display:block;font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink-3);margin-top:6px;letter-spacing:0}
+.track .desc{color:var(--ink-2);font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tags span{font-family:var(--mono);font-size:11.5px;padding:3px 8px;background:var(--paper-2);border:1px solid var(--line);border-radius:3px;color:var(--ink-2)}
+.track:hover .tags span{background:var(--paper)}
+.lvl{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:6px}
+.lvl b{display:block;font-weight:500;color:var(--ink)}
+.arrow{padding-top:4px;transition:transform .2s;color:var(--ink-3)}
+.track:hover .arrow{transform:translateX(4px);color:var(--brand)}
+.track.hidden{display:none}
+.empty{display:none;padding:40px 6px;color:var(--ink-3);font-style:italic}
+
+/* ---------- roadmaps ---------- */
+.dark{background:var(--night);color:#e7e2d8}
+.dark .sec-head p{color:#a59e92}
+.dark .kicker{color:#e0866f}
+.road-tabs{display:flex;gap:0;border-bottom:1px solid #2e3338;margin-bottom:40px;overflow-x:auto}
+.road-tab{background:none;border:0;color:#8f949a;font:inherit;font-size:15px;padding:14px 22px 14px 0;margin-right:22px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.road-tab.on{color:#fff;border-bottom-color:var(--brand)}
+.road{display:none}
+.road.on{display:block}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.step{padding:0 22px 0 0;position:relative}
+.step::before{content:"";position:absolute;top:13px;left:28px;right:0;height:1px;background:#3a4046}
+.step:last-child::before{display:none}
+.dot{width:27px;height:27px;border-radius:50%;border:1px solid #5a6168;display:grid;place-items:center;font-family:var(--mono);font-size:11px;background:var(--night);position:relative;z-index:1}
+.step:first-child .dot{background:var(--brand);border-color:var(--brand);color:#fff}
+.step h4{font-size:16px;font-weight:600;margin:18px 0 6px;color:#fff}
+.step p{font-size:14px;color:#a59e92;line-height:1.55}
+.step .when{font-family:var(--mono);font-size:11.5px;color:#e6c88a;margin-top:10px;display:block}
+.road-foot{margin-top:44px;padding-top:22px;border-top:1px dashed #3a4046;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:#a59e92;font-size:14.5px}
+.road-foot a{color:#fff;border-bottom:1px solid var(--brand)}
+
+/* ---------- notebook / articles ---------- */
+.notes{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0;border-top:2px solid var(--ink)}
+.note{padding:28px 28px 30px 0;border-right:1px solid var(--line)}
+.note+.note{padding-left:28px}
+.note:last-child{border-right:0;padding-right:0}
+.note .meta{display:flex;gap:14px;color:var(--ink-3)}
+.note .meta b{color:var(--brand);font-weight:500}
+.note h3{font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.22;margin:14px 0 12px;letter-spacing:-.01em}
+.note.big h3{font-size:32px}
+.note p{color:var(--ink-2);font-size:15.5px}
+.note a.more{display:inline-block;margin-top:18px;font-size:14.5px;border-bottom:1px solid var(--ink)}
+.note a.more:hover{color:var(--brand);border-color:var(--brand)}
+.figure{margin-top:22px;background:var(--paper-2);border:1px solid var(--line);padding:18px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);line-height:1.9}
+.figure .row{display:flex;align-items:center;gap:10px}
+.figure .row{flex-wrap:wrap}
+.figure .bx{border:1px solid var(--ink-2);padding:2px 8px;background:var(--paper);white-space:nowrap}
+.figure .ar{color:var(--brand)}
+
+/* ---------- certifications ---------- */
+.certs{width:100%;border-collapse:collapse;font-size:15px}
+.certs th{text-align:left;font-family:var(--mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);padding:12px 14px;border-bottom:2px solid var(--ink)}
+.certs td{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.certs td:first-child{font-weight:600;white-space:nowrap}
+.certs .c{display:inline-block;font-family:var(--mono);font-size:12.5px;margin:0 6px 6px 0;padding:2px 0;border-bottom:1px dotted var(--ink-3)}
+.table-scroll{overflow-x:auto}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.about blockquote{font-family:var(--serif);font-size:clamp(26px,2.8vw,36px);line-height:1.25;font-weight:400;letter-spacing:-.01em}
+.about blockquote::before{content:"“";display:block;font-size:90px;line-height:.6;color:var(--brand);margin-bottom:10px}
+.about .sig{margin-top:26px;color:var(--ink-3)}
+.principles{list-style:none;counter-reset:p}
+.principles li{counter-increment:p;padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:48px 1fr;gap:12px}
+.principles li:last-child{border-bottom:1px solid var(--line)}
+.principles li::before{content:counter(p,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--brand);padding-top:3px}
+.principles b{display:block;font-weight:600;margin-bottom:3px}
+.principles span{color:var(--ink-2);font-size:15.5px}
+
+/* ---------- newsletter ---------- */
+.signup{background:var(--brand);color:#fff;padding:64px 0}
+.signup .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.signup h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,42px);font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.signup p{opacity:.85;margin-top:10px}
+.signup form{display:flex;border-bottom:2px solid #fff}
+.signup input{flex:1;background:transparent;border:0;color:#fff;font:inherit;font-size:18px;padding:14px 0;outline:none}
+.signup input::placeholder{color:rgba(255,255,255,.7)}
+.signup button{background:none;border:0;color:#fff;font:inherit;font-weight:600;cursor:pointer;padding:0 4px}
+
+/* ---------- footer ---------- */
+footer{padding:64px 0 36px;background:var(--paper-2);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr .8fr;gap:40px}
+.foot h5{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);font-weight:500;margin-bottom:14px}
+.foot ul{list-style:none}
+.foot li{margin:7px 0;font-size:15px;color:var(--ink-2)}
+.foot li a:hover{color:var(--brand)}
+.foot p{color:var(--ink-2);font-size:15px;max-width:320px;margin-top:14px}
+.legal{margin-top:54px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--ink-3);flex-wrap:wrap;gap:10px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.strip-track,.cursor{animation:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero .wrap,.about,.signup .wrap{grid-template-columns:1fr;gap:48px}
+  .sec-head{grid-template-columns:1fr;gap:10px}
+  .track{grid-template-columns:44px 1fr 24px;gap:14px}
+  .track .desc{grid-column:2/3}
+  .track .lvl{grid-column:2/3;padding-top:0}
+  .track .arrow{grid-column:3;grid-row:1}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .step{padding:0 0 0 44px}
+  .step .dot{position:absolute;left:0;top:0}
+  .step h4{margin-top:2px}
+  .step::before{top:28px;bottom:-28px;left:13px;right:auto;width:1px;height:auto}
+  .notes{grid-template-columns:1fr}
+  .note,.note+.note{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .foot{grid-template-columns:1fr 1fr}
 }
-@media(max-width:700px){
- header.site{padding:0 5%}.brand{font-size:22px}
- .menu-btn{display:block}
- nav.main{display:none;position:absolute;top:76px;left:0;width:100%;background:var(--bg);flex-direction:column;gap:18px;padding:22px 7%;border-bottom:1px solid var(--line)}
- nav.main.open{display:flex}
- .row{grid-template-columns:8px 1fr;gap:6px 16px;padding:20px 8px 20px 0}
- .row .bar{grid-row:1/4}
- .row .ico{display:none}
- .steps{grid-template-columns:1fr}
+@media (max-width:760px){
+  nav.main{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
+  nav.main.open{display:flex}
+  nav.main a{padding:14px 28px;border-top:1px solid var(--line)}
+  .menu-toggle{display:block}
+  .top .btn{display:none}
+  section.block{padding:72px 0}
+  .hero{padding:56px 0}
+  .search{min-width:0;width:100%}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
 <body>
-<header class="site">
-<a class="brand" href="#top" aria-label="Hamza IT Learning home"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="10" fill="#1A2330"/><path d="M11 13H37V18H11V13Z" fill="white"/><path d="M11 22H30V27H11V22Z" fill="white"/><path d="M11 31H25V36H11V31Z" fill="white"/><circle cx="35" cy="33.5" r="5" fill="#E8A900"/></svg><span>Hamza <i>IT Learning</i></span></a>
-<button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
-<nav class="main" id="nav"><a href="#topics">Topics</a><a href="#journey">Digital transformation</a><a href="#about">About</a></nav>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo"><span class="logo-mark"><span></span></span>Hamza <b>IT Learning</b></a>
+    <nav class="main" id="nav">
+      <a href="#tracks">Learning paths</a>
+      <a href="#roadmaps">Career roadmaps</a>
+      <a href="#notebook">Notebook</a>
+      <a href="#certs">Certifications</a>
+      <a href="#about">About</a>
+    </nav>
+    <a href="#tracks" class="btn btn-dark">Start learning</a>
+    <button class="menu-toggle mono" id="menuBtn" aria-label="Menu">MENU</button>
+  </div>
 </header>
 
-<main>
-<section class="hero" id="top">
-<div>
-<h1>Learn IT from the cable up.</h1>
-<p>Networks, databases, cloud, security, digital transformation and AI, arranged so every topic builds on the one beneath it.</p>
-<div class="actions"><a class="btn btn-solid" href="networking.html">Start with networking</a><a class="btn btn-line" href="#topics">Browse all topics</a></div>
-</div>
-<figure class="rack-wrap">
-<ol class="rack" id="rack" aria-label="Learning topics, from top unit to bottom unit">
-<li><span class="u">8</span><a class="unit" href="ai.html" style="--c:#6A58C8"><span class="led"></span><span class="name">Artificial Intelligence</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">7</span><a class="unit" href="#journey" style="--c:#EE7F1E"><span class="led"></span><span class="name">Digital Transformation</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">6</span><a class="unit" href="cybersecurity.html" style="--c:#B8286E"><span class="led"></span><span class="name">Cybersecurity</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">5</span><a class="unit" href="oracle.html" style="--c:#D6452D"><span class="led"></span><span class="name">Oracle Technologies</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">4</span><a class="unit" href="azure.html" style="--c:#2E64D8"><span class="led"></span><span class="name">Microsoft Azure</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">3</span><a class="unit" href="cloud.html" style="--c:#18A0C7"><span class="led"></span><span class="name">Cloud Computing</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">2</span><a class="unit" href="database.html" style="--c:#3A9D5D"><span class="led"></span><span class="name">Databases</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-<li><span class="u">1</span><a class="unit" href="networking.html" style="--c:#E8A900"><span class="led"></span><span class="name">IT &amp; Networking</span><span class="ports" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a></li>
-</ol>
-<figcaption>Eight units, bottom to top: the order we suggest you learn them.</figcaption>
-</figure>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">A technology knowledge hub</div>
+      <h1>Learn technology the way it's <em>actually used</em> at work.</h1>
+      <p class="lede">Structured paths through networking, cybersecurity, cloud, AI, data and digital transformation. Written plainly, ordered carefully, and tied to the jobs and certifications that matter.</p>
+      <div class="hero-actions">
+        <a href="#tracks" class="btn btn-dark">Browse the paths →</a>
+        <a href="#roadmaps" class="btn btn-line">Pick a career roadmap</a>
+      </div>
+      <div class="hero-note mono"><span>Free to read</span><span>No sign-up wall</span><span>English · العربية soon</span></div>
+    </div>
+
+    <div class="term rv" aria-hidden="true">
+      <div class="term-bar"><span><i></i><i></i><i></i></span><span>~/learning</span></div>
+      <div class="term-body">
+<span class="p">$</span> ls paths/<br>
+<span class="g">infrastructure/  networking/  cybersecurity/</span><br>
+<span class="g">cloud/  ai/  data-analytics/  databases/</span><br>
+<span class="g">erp/  devops/  backup-dr/  itsm/</span><br>
+<span class="g">architecture-dt/  grc/</span><br>
+<span class="p">$</span> cat cybersecurity/README<br>
+<span class="c"># 9 modules · beginner → practitioner</span><br>
+<span class="y">01</span> threat landscape &nbsp;<span class="y">02</span> network security<br>
+<span class="y">03</span> identity &amp; access <span class="y">04</span> SOC operations ...<br>
+<span class="p">$</span> next --suggest<br>
+→ start with <span class="y">networking/01-osi-model</span><br>
+<span class="p">$</span> <span class="cursor"></span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="wrap" id="topics">
-<div class="sec-head">
-<h2>Every topic, and what is inside it</h2>
-<div class="search"><input type="search" id="q" placeholder="Search topics: DNS, Zero Trust, ERP, AWS..." aria-label="Search topics"></div>
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Networking</span><span class="d">/</span><span>Zero Trust</span><span class="d">/</span><span>Azure</span><span class="d">/</span><span>AWS</span><span class="d">/</span><span>Oracle Cloud</span><span class="d">/</span><span>Huawei Cloud</span><span class="d">/</span><span>Alibaba Cloud</span><span class="d">/</span><span>LLMs &amp; RAG</span><span class="d">/</span><span>SOC</span><span class="d">/</span><span>Linux</span><span class="d">/</span><span>Kubernetes</span><span class="d">/</span><span>Power BI</span><span class="d">/</span><span>ITIL 4</span><span class="d">/</span><span>ISO 27001</span><span class="d">/</span><span>Oracle Database</span><span class="d">/</span>
+    <span>Networking</span><span class="d">/</span><span>Zero Trust</span><span class="d">/</span><span>Azure</span><span class="d">/</span><span>AWS</span><span class="d">/</span><span>Oracle Cloud</span><span class="d">/</span><span>Huawei Cloud</span><span class="d">/</span><span>Alibaba Cloud</span><span class="d">/</span><span>LLMs &amp; RAG</span><span class="d">/</span><span>SOC</span><span class="d">/</span><span>Linux</span><span class="d">/</span><span>Kubernetes</span><span class="d">/</span><span>Power BI</span><span class="d">/</span><span>ITIL 4</span><span class="d">/</span><span>ISO 27001</span><span class="d">/</span><span>Oracle Database</span><span class="d">/</span>
+  </div>
 </div>
-<div id="list">
-<div class="group"><h3>Infrastructure and data</h3>
-<a class="row" href="networking.html" style="--c:#E8A900"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span><div><h4>IT &amp; Networking</h4><p class="d">IT infrastructure and the network that connects it.</p></div><p class="br">DNS, DHCP, VLAN, routing, NAT, VPN, wireless</p></a>
-<a class="row" href="database.html" style="--c:#3A9D5D"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><div><h4>Databases</h4><p class="d">Where business data lives, and how to keep it available.</p></div><p class="br">SQL Server, Oracle Database, backup, recovery, performance, availability</p></a>
-<a class="row" href="cloud.html" style="--c:#18A0C7"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span><div><h4>Cloud Computing</h4><p class="d">Public, private and hybrid cloud across the major providers.</p></div><p class="br">Azure, AWS, Oracle Cloud, Huawei Cloud, Alibaba Cloud, IaaS, PaaS, SaaS</p></a>
-<a class="row" href="azure.html" style="--c:#2E64D8"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 17 9 7l4 8 3-5 4 7"/><path d="M3 20h18"/></svg></span><div><h4>Microsoft Azure</h4><p class="d">Microsoft's cloud: compute, storage, identity and hybrid.</p></div><p class="br">Compute, storage, networking, Entra ID, governance</p></a>
-<a class="row" href="oracle.html" style="--c:#D6452D"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><div><h4>Oracle Technologies</h4><p class="d">Enterprise systems that run finance, supply chain and operations.</p></div><p class="br">EBS, Fusion Cloud, SCM, OPM, inventory, purchasing, ERP administration</p></a>
-</div>
-<div class="group"><h3>Protection</h3>
-<a class="row" href="cybersecurity.html" style="--c:#B8286E"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Cybersecurity</h4><p class="d">Protecting identities, endpoints, networks and data.</p></div><p class="br">Identity and access, Zero Trust, firewalls, endpoint security, SOC operations</p></a>
-</div>
-<div class="group"><h3>Transformation and intelligence</h3>
-<a class="row" href="#journey" style="--c:#EE7F1E"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span><div><h4>Digital Transformation</h4><p class="d">Changing how an organization works with technology, step by step.</p></div><p class="br">Process review, data, automation, adoption, change management</p></a>
-<a class="row" href="ai.html" style="--c:#6A58C8"><span class="bar"></span><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><div><h4>Artificial Intelligence</h4><p class="d">Machine learning, generative AI and how to apply it safely at work.</p></div><p class="br">LLMs, Microsoft Copilot, RAG, agents, Azure AI, AI security</p></a>
-</div>
-</div>
-<p class="none" id="none">No topic matches that search.</p>
+
+<!-- TRACKS -->
+<section class="block" id="tracks">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">01 — Learning paths</div>
+      <div>
+        <h2>Thirteen paths covering the whole field.</h2>
+        <p>Each path starts from zero and builds in order. Read one end to end, or jump straight to the module you need for a project or an exam.</p>
+      </div>
+    </div>
+
+    <div class="cat-tools">
+      <div class="chips" id="chips">
+        <button class="chip on" data-f="all">All</button>
+        <button class="chip" data-f="infra">Infrastructure</button>
+        <button class="chip" data-f="security">Security</button>
+        <button class="chip" data-f="cloudai">Cloud &amp; AI</button>
+        <button class="chip" data-f="data">Data</button>
+        <button class="chip" data-f="apps">Applications</button>
+        <button class="chip" data-f="ops">Operations</button>
+        <button class="chip" data-f="strategy">Strategy &amp; Governance</button>
+      </div>
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search a topic, e.g. firewall, RAG, AWS">
+      </label>
+    </div>
+
+    <div class="tracks" id="trackList">
+      <a class="track" href="#" data-cat="infra">
+        <span class="n">01</span>
+        <h3>IT Fundamentals &amp; Infrastructure<small>Hardware, servers, operating systems, virtualization</small></h3>
+        <div class="desc">How computers, servers and operating systems work, how they are virtualized, and how to troubleshoot them methodically.
+          <div class="tags"><span>Hardware</span><span>Windows Server</span><span>Linux</span><span>Active Directory</span><span>VMware</span><span>Hyper-V</span><span>Storage</span></div></div>
+        <span class="lvl"><b>Beginner</b>9 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="infra">
+        <span class="n">02</span>
+        <h3>Networking &amp; Connectivity<small>From cables to the cloud edge</small></h3>
+        <div class="desc">The OSI and TCP/IP models, addressing, routing and switching, wireless, WAN and SD-WAN, and the services that hold networks together.
+          <div class="tags"><span>OSI</span><span>IPv4 / IPv6</span><span>Subnetting</span><span>VLAN</span><span>DNS</span><span>BGP</span><span>SD-WAN</span></div></div>
+        <span class="lvl"><b>Beginner → Mid</b>10 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="security">
+        <span class="n">03</span>
+        <h3>Cybersecurity<small>Defend, detect, respond</small></h3>
+        <div class="desc">Threats and attack techniques, network and endpoint defence, identity, SOC work, incident response and ethical hacking.
+          <div class="tags"><span>Zero Trust</span><span>Firewalls</span><span>SIEM</span><span>MITRE ATT&amp;CK</span><span>Pentesting</span><span>IAM</span><span>Incident response</span></div></div>
+        <span class="lvl"><b>Beginner → Practitioner</b>9 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="cloudai">
+        <span class="n">04</span>
+        <h3>Cloud Computing<small>Five providers, one mental model</small></h3>
+        <div class="desc">Core cloud concepts first, then the same services compared across Microsoft Azure, Amazon AWS, Oracle Cloud, Huawei Cloud and Alibaba Cloud.
+          <div class="tags"><span>Azure</span><span>AWS</span><span>OCI</span><span>Huawei Cloud</span><span>Alibaba Cloud</span><span>IaaS / PaaS / SaaS</span></div></div>
+        <span class="lvl"><b>Mid</b>12 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="cloudai">
+        <span class="n">05</span>
+        <h3>Artificial Intelligence<small>From fundamentals to enterprise AI</small></h3>
+        <div class="desc">Machine learning and deep learning basics, generative AI and LLMs, prompt engineering, RAG and agents, Copilot and Azure AI, and running AI responsibly.
+          <div class="tags"><span>Machine learning</span><span>LLMs</span><span>Prompting</span><span>RAG</span><span>AI agents</span><span>Copilot</span><span>MLOps</span></div></div>
+        <span class="lvl"><b>Beginner → Mid</b>13 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="data">
+        <span class="n">06</span>
+        <h3>Data &amp; Analytics<small>Turning records into decisions</small></h3>
+        <div class="desc">SQL for analysis, data modelling, ETL pipelines, warehouses and lakes, and building dashboards people actually use.
+          <div class="tags"><span>SQL</span><span>Power BI</span><span>Python</span><span>ETL</span><span>Data warehouse</span><span>Data governance</span></div></div>
+        <span class="lvl"><b>Beginner → Mid</b>9 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="data">
+        <span class="n">07</span>
+        <h3>Database Management Systems<small>Design, run, tune, protect</small></h3>
+        <div class="desc">Relational design and normalization, then administering the major engines: installation, security, backup, performance tuning and high availability.
+          <div class="tags"><span>Oracle DB</span><span>SQL Server</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>PL/SQL</span><span>Data Guard</span></div></div>
+        <span class="lvl"><b>Mid → Advanced</b>11 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="apps">
+        <span class="n">08</span>
+        <h3>ERP &amp; Enterprise Applications<small>The systems that run the business</small></h3>
+        <div class="desc">How ERP, CRM and HR systems model finance, supply chain and people, how they are implemented, and how they integrate with everything else.
+          <div class="tags"><span>SAP S/4HANA</span><span>Oracle Fusion</span><span>Oracle EBS</span><span>Dynamics 365</span><span>CRM</span><span>Integration / APIs</span></div></div>
+        <span class="lvl"><b>Mid</b>8 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="ops">
+        <span class="n">09</span>
+        <h3>DevOps &amp; Automation<small>Ship reliably, repeatably</small></h3>
+        <div class="desc">Version control, CI/CD, containers, Kubernetes, infrastructure as code and scripting the repetitive parts away.
+          <div class="tags"><span>Git</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>CI/CD</span><span>PowerShell</span><span>Ansible</span></div></div>
+        <span class="lvl"><b>Mid</b>9 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="ops">
+        <span class="n">10</span>
+        <h3>Backup, Disaster Recovery &amp; Business Continuity<small>Stay up, or come back fast</small></h3>
+        <div class="desc">Backup strategy, RPO and RTO, replication and DR sites, ransomware-resilient recovery, and the business continuity plans that tie it together.
+          <div class="tags"><span>3-2-1 rule</span><span>RPO / RTO</span><span>Veeam</span><span>Commvault</span><span>DR sites</span><span>ISO 22301</span><span>BCP</span></div></div>
+        <span class="lvl"><b>Mid</b>7 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="ops">
+        <span class="n">11</span>
+        <h3>IT Service Management &amp; Operations<small>Running IT as a service</small></h3>
+        <div class="desc">Service desk, incident, problem and change management, SLAs, monitoring and NOC operations, and the tools that support them.
+          <div class="tags"><span>ITIL 4</span><span>ServiceNow</span><span>Incident</span><span>Change</span><span>SLA</span><span>Monitoring</span><span>NOC</span></div></div>
+        <span class="lvl"><b>Beginner → Mid</b>8 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="strategy">
+        <span class="n">12</span>
+        <h3>Enterprise Architecture &amp; Digital Transformation<small>Technology that changes how work gets done</small></h3>
+        <div class="desc">Mapping business, data, application and technology architecture, then using it to plan transformation: strategy, process redesign, e-services and change management.
+          <div class="tags"><span>TOGAF</span><span>Capability maps</span><span>Process redesign</span><span>E-services</span><span>Change management</span><span>Vision 2030</span></div></div>
+        <span class="lvl"><b>Mid → Advanced</b>10 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="track" href="#" data-cat="strategy">
+        <span class="n">13</span>
+        <h3>IT Governance, Risk &amp; Compliance<small>Frameworks, risk, audit</small></h3>
+        <div class="desc">Proving IT is under control: governance frameworks, risk assessment, security standards, data protection law and audit readiness.
+          <div class="tags"><span>COBIT</span><span>ISO 27001</span><span>NCA ECC</span><span>PDPL</span><span>Risk management</span><span>IT audit</span></div></div>
+        <span class="lvl"><b>Mid → Advanced</b>8 modules</span>
+        <span class="arrow">→</span>
+      </a>
+      <p class="empty" id="empty">Nothing matches that yet. Try a broader word, or browse all paths.</p>
+    </div>
+  </div>
 </section>
 
-<section class="wrap" id="journey">
-<div class="sec-head">
-<h2>Digital transformation, step by step</h2>
-<p>Technology alone does not transform an organization. These five steps show where each topic on this site fits.</p>
-</div>
-<ol class="steps">
-<li style="--c:#E8A900"><div class="n">1</div><h3>Assess where you are</h3><p>Map current processes, systems, data and skills. Decide which problems are worth solving first.</p><p class="rel">Related: <a href="networking.html">Networking</a></p></li>
-<li style="--c:#18A0C7"><div class="n">2</div><h3>Modernize the foundation</h3><p>Reliable networks, cloud platforms and databases make every later step possible.</p><p class="rel">Related: <a href="cloud.html">Cloud</a>, <a href="azure.html">Azure</a></p></li>
-<li style="--c:#3A9D5D"><div class="n">3</div><h3>Connect and clean the data</h3><p>Join ERP, operational and reporting data so decisions rest on one trusted source.</p><p class="rel">Related: <a href="database.html">Databases</a>, <a href="oracle.html">Oracle</a></p></li>
-<li style="--c:#EE7F1E"><div class="n">4</div><h3>Automate and add insight</h3><p>Automate repeatable work, then apply analytics and AI where the data supports it.</p><p class="rel">Related: <a href="ai.html">Artificial Intelligence</a></p></li>
-<li style="--c:#B8286E"><div class="n">5</div><h3>Protect and sustain</h3><p>Secure identities and data, train people and keep improving. Security runs through every step, not only the last.</p><p class="rel">Related: <a href="cybersecurity.html">Cybersecurity</a></p></li>
-</ol>
+<!-- ROADMAPS -->
+<section class="block dark" id="roadmaps">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">02 — Career roadmaps</div>
+      <div>
+        <h2>Know where you're heading before you start.</h2>
+        <p>Each roadmap strings modules from several paths into the order a hiring manager would expect, with a realistic time estimate at each stage.</p>
+      </div>
+    </div>
+
+    <div class="road-tabs" id="roadTabs">
+      <button class="road-tab on" data-r="soc">SOC Analyst</button>
+      <button class="road-tab" data-r="cloud">Cloud Engineer</button>
+      <button class="road-tab" data-r="ai">AI Engineer</button>
+      <button class="road-tab" data-r="dt">Digital Transformation Lead</button>
+    </div>
+
+    <div class="road on" id="r-soc">
+      <div class="steps">
+        <div class="step"><span class="dot">1</span><h4>IT &amp; OS basics</h4><p>Windows, Linux, the command line, how users and permissions work.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">2</span><h4>Networking</h4><p>TCP/IP, ports and protocols, reading a packet capture in Wireshark.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">3</span><h4>Security foundations</h4><p>Threats, controls, cryptography basics. Target: Security+.</p><span class="when">~ 8 weeks</span></div>
+        <div class="step"><span class="dot">4</span><h4>SOC tooling</h4><p>SIEM queries, alert triage, MITRE ATT&amp;CK mapping, playbooks.</p><span class="when">~ 8 weeks</span></div>
+        <div class="step"><span class="dot">5</span><h4>Incident response</h4><p>Containment, forensics basics, writing a clear incident report.</p><span class="when">~ 6 weeks</span></div>
+      </div>
+      <div class="road-foot"><span>Total: roughly 7–8 months at 8–10 hours a week.</span><a href="#">Open the full SOC roadmap →</a></div>
+    </div>
+
+    <div class="road" id="r-cloud">
+      <div class="steps">
+        <div class="step"><span class="dot">1</span><h4>Linux &amp; networking</h4><p>The two skills every cloud job quietly assumes you have.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">2</span><h4>Cloud concepts</h4><p>Regions, IAM, VPCs, storage tiers, shared responsibility. Target: AZ-900 or AWS CCP.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">3</span><h4>Pick a provider</h4><p>Go deep on one of Azure, AWS, OCI, Huawei or Alibaba Cloud.</p><span class="when">~ 10 weeks</span></div>
+        <div class="step"><span class="dot">4</span><h4>Infrastructure as code</h4><p>Terraform, pipelines, repeatable environments.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">5</span><h4>Containers &amp; security</h4><p>Docker, Kubernetes, cloud security posture.</p><span class="when">~ 8 weeks</span></div>
+      </div>
+      <div class="road-foot"><span>Total: roughly 8 months at 8–10 hours a week.</span><a href="#">Open the full cloud roadmap →</a></div>
+    </div>
+
+    <div class="road" id="r-ai">
+      <div class="steps">
+        <div class="step"><span class="dot">1</span><h4>Python &amp; data</h4><p>Python, pandas, SQL, cleaning a messy dataset.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">2</span><h4>ML fundamentals</h4><p>Regression, classification, evaluation, overfitting.</p><span class="when">~ 8 weeks</span></div>
+        <div class="step"><span class="dot">3</span><h4>LLMs &amp; prompting</h4><p>How language models work, prompting patterns, evaluation.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">4</span><h4>RAG &amp; agents</h4><p>Embeddings, vector search, tool use, building a working assistant.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">5</span><h4>Production &amp; safety</h4><p>MLOps, monitoring, AI security and responsible AI.</p><span class="when">~ 6 weeks</span></div>
+      </div>
+      <div class="road-foot"><span>Total: roughly 7 months at 8–10 hours a week.</span><a href="#">Open the full AI roadmap →</a></div>
+    </div>
+
+    <div class="road" id="r-dt">
+      <div class="steps">
+        <div class="step"><span class="dot">1</span><h4>Technology literacy</h4><p>Enough cloud, data and AI to judge proposals with confidence.</p><span class="when">~ 6 weeks</span></div>
+        <div class="step"><span class="dot">2</span><h4>Process thinking</h4><p>Mapping current processes, finding waste, BPMN basics.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">3</span><h4>Strategy &amp; roadmap</h4><p>Maturity models, prioritising initiatives, building a business case.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">4</span><h4>Governance</h4><p>ITIL, COBIT, risk, and keeping the programme compliant.</p><span class="when">~ 4 weeks</span></div>
+        <div class="step"><span class="dot">5</span><h4>Change &amp; measurement</h4><p>Adoption, training, KPIs, reporting results to leadership.</p><span class="when">~ 4 weeks</span></div>
+      </div>
+      <div class="road-foot"><span>Total: roughly 5 months alongside a full-time role.</span><a href="#">Open the full transformation roadmap →</a></div>
+    </div>
+  </div>
 </section>
 
-<section class="about" id="about">
-<div class="about-in">
-<h2>Practical IT knowledge in simple learning paths</h2>
-<div>
-<p>Hamza IT Learning organizes practical technology knowledge into clear learning paths covering infrastructure, cloud, databases, Oracle, cybersecurity, digital transformation and artificial intelligence.</p>
-<p>Each path starts with the concepts and moves toward real platforms and tools, so you can learn one topic at a time and see how it connects to the rest.</p>
-<a class="btn" href="#topics">Choose a topic</a>
-</div>
-</div>
-</section>
-</main>
+<!-- NOTEBOOK -->
+<section class="block" id="notebook">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">03 — The notebook</div>
+      <div>
+        <h2>Recent lessons and explainers.</h2>
+        <p>Short, standalone pieces that answer one question well. Good for a coffee break; better as a refresher before an interview.</p>
+      </div>
+    </div>
 
-<footer><span>© <span id="year"></span> Hamza IT Learning. Technology Knowledge Hub.</span></footer>
+    <div class="notes rv">
+      <article class="note big">
+        <div class="meta mono"><b>AI</b><span>12 min read</span></div>
+        <h3>RAG, explained without the hype</h3>
+        <p>Why a language model on its own can't answer questions about your documents, and how retrieval fixes that — step by step, with the parts that usually go wrong.</p>
+        <div class="figure">
+          <div class="row"><span class="bx">Question</span><span class="ar">→</span><span class="bx">Search docs</span><span class="ar">→</span><span class="bx">Top passages</span></div>
+          <div class="row" style="margin-top:8px"><span class="ar">↳</span><span class="bx">LLM + context</span><span class="ar">→</span><span class="bx">Answer + sources</span></div>
+        </div>
+        <a href="#" class="more">Read the lesson</a>
+      </article>
+      <article class="note">
+        <div class="meta mono"><b>Security</b><span>8 min read</span></div>
+        <h3>Zero Trust in one diagram and five decisions</h3>
+        <p>"Never trust, always verify" is a slogan. Here is what it means for identity, devices, network segments and logging on a Monday morning.</p>
+        <a href="#" class="more">Read the lesson</a>
+      </article>
+      <article class="note">
+        <div class="meta mono"><b>Cloud</b><span>10 min read</span></div>
+        <h3>The same VM on five clouds: a side-by-side</h3>
+        <p>Azure, AWS, OCI, Huawei Cloud and Alibaba Cloud name things differently. A translation table for compute, storage and networking.</p>
+        <a href="#" class="more">Read the lesson</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="block" id="certs" style="padding-top:0">
+  <div class="wrap">
+    <hr class="rule" style="margin-bottom:96px">
+    <div class="sec-head rv">
+      <div class="kicker">04 — Certifications</div>
+      <div>
+        <h2>Which exam each path prepares you for.</h2>
+        <p>Paths are written to cover the objectives of these certifications. Pick the exam first if your employer asks for one.</p>
+      </div>
+    </div>
+    <div class="table-scroll rv">
+      <table class="certs">
+        <thead><tr><th>Path</th><th>Entry level</th><th>Professional</th></tr></thead>
+        <tbody>
+          <tr><td>IT &amp; Networking</td><td><span class="c">CompTIA A+</span><span class="c">CompTIA Network+</span></td><td><span class="c">Cisco CCNA</span><span class="c">Huawei HCIA-Datacom</span></td></tr>
+          <tr><td>Cybersecurity</td><td><span class="c">CompTIA Security+</span><span class="c">ISC2 CC</span></td><td><span class="c">CySA+</span><span class="c">CEH</span><span class="c">CISSP</span></td></tr>
+          <tr><td>Cloud</td><td><span class="c">AZ-900</span><span class="c">AWS Cloud Practitioner</span><span class="c">OCI Foundations</span><span class="c">HCIA-Cloud</span><span class="c">Alibaba ACA</span></td><td><span class="c">AZ-104</span><span class="c">AWS SAA</span><span class="c">OCI Architect</span></td></tr>
+          <tr><td>AI &amp; Analytics</td><td><span class="c">AI-900</span></td><td><span class="c">AI-102</span><span class="c">PL-300</span><span class="c">AWS ML Specialty</span></td></tr>
+          <tr><td>Databases</td><td><span class="c">Oracle SQL Associate</span><span class="c">DP-900</span></td><td><span class="c">Oracle DBA OCP</span><span class="c">DP-300</span></td></tr>
+          <tr><td>ERP</td><td><span class="c">SAP Certified Associate</span><span class="c">MB-910</span></td><td><span class="c">Oracle Fusion Implementation</span><span class="c">SAP S/4HANA Consultant</span></td></tr>
+          <tr><td>DevOps</td><td><span class="c">AZ-900</span><span class="c">Terraform Associate</span></td><td><span class="c">CKA</span><span class="c">AZ-400</span></td></tr>
+          <tr><td>Backup &amp; DR</td><td><span class="c">Veeam VMCA</span><span class="c">ISO 22301 Foundation</span></td><td><span class="c">Veeam VMCE</span><span class="c">DRI CBCP</span></td></tr>
+          <tr><td>Service Mgmt</td><td><span class="c">ITIL 4 Foundation</span></td><td><span class="c">ITIL 4 Managing Professional</span><span class="c">ServiceNow CSA</span></td></tr>
+          <tr><td>Architecture</td><td><span class="c">TOGAF Foundation</span></td><td><span class="c">TOGAF Enterprise Architecture Practitioner</span></td></tr>
+          <tr><td>GRC</td><td><span class="c">ISO 27001 Foundation</span><span class="c">COBIT 2019 Foundation</span></td><td><span class="c">ISO 27001 Lead Implementer</span><span class="c">CISA</span><span class="c">CISM</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about" style="background:var(--paper-2);border-top:1px solid var(--line)">
+  <div class="wrap about">
+    <div class="rv">
+      <div class="kicker" style="margin-bottom:22px">05 — Why this site exists</div>
+      <blockquote>Most people don't struggle with technology because it's hard. They struggle because nobody showed them the order to learn it in.</blockquote>
+      <p class="sig mono">Hamza Musallam — founder &amp; author</p>
+    </div>
+    <ul class="principles rv">
+      <li><div><b>Order before depth</b><span>Every path is sequenced so each lesson only depends on the ones before it.</span></div></li>
+      <li><div><b>Plain language</b><span>Jargon is defined the first time it appears, then used consistently.</span></div></li>
+      <li><div><b>Tied to real work</b><span>Examples come from networks, SOCs and projects, not from textbooks.</span></div></li>
+      <li><div><b>Vendor-fair</b><span>Concepts first, then how each provider implements them, side by side.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="signup">
+  <div class="wrap">
+    <div>
+      <h2>One useful lesson, every two weeks.</h2>
+      <p>New modules and explainers in your inbox. Nothing else.</p>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" required placeholder="you@example.com" aria-label="Email address">
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#" class="logo"><span class="logo-mark"><span></span></span>Hamza <b>IT Learning</b></a>
+        <p>A free, structured knowledge hub for IT, cybersecurity, cloud, AI and digital transformation.</p>
+      </div>
+      <div><h5>Core</h5><ul><li><a href="#">Infrastructure</a></li><li><a href="#">Networking</a></li><li><a href="#">Cybersecurity</a></li><li><a href="#">Cloud Computing</a></li><li><a href="#">Artificial Intelligence</a></li><li><a href="#">Data &amp; Analytics</a></li><li><a href="#">Databases</a></li></ul></div>
+      <div><h5>Enterprise</h5><ul><li><a href="#">ERP &amp; Applications</a></li><li><a href="#">DevOps</a></li><li><a href="#">Backup &amp; DR</a></li><li><a href="#">IT Service Management</a></li><li><a href="#">Architecture &amp; DT</a></li><li><a href="#">Governance &amp; Risk</a></li></ul></div>
+      <div><h5>Site</h5><ul><li><a href="#about">About</a></li><li><a href="#roadmaps">Roadmaps</a></li><li><a href="#certs">Certifications</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="legal mono"><span>© 2026 Hamza IT Learning</span><span>Made in Riyadh</span></div>
+  </div>
+</footer>
 
 <script>
-function toggleMenu(){document.getElementById('nav').classList.toggle('open')}
-document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-// search
-const q=document.getElementById('q'),rows=[...document.querySelectorAll('.row')],groups=[...document.querySelectorAll('.group')],none=document.getElementById('none');
-q.addEventListener('input',()=>{const t=q.value.toLowerCase().trim();let n=0;
- rows.forEach(r=>{const s=r.innerText.toLowerCase().includes(t);r.style.display=s?'':'none';if(s)n++});
- groups.forEach(g=>{g.style.display=[...g.querySelectorAll('.row')].some(r=>r.style.display!=='none')?'':'none'});
- none.style.display=n?'none':'block'});
-// rack: units power on from the bottom, once
-const units=[...document.querySelectorAll('#rack .unit')].reverse();
-if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){units.forEach(u=>u.classList.add('on'))}
-else{units.forEach((u,i)=>setTimeout(()=>u.classList.add('on'),500+i*170))}
+// mobile menu
+document.getElementById('menuBtn').onclick=()=>document.getElementById('nav').classList.toggle('open');
+
+// catalogue filter + search
+const chips=[...document.querySelectorAll('.chip')],tracks=[...document.querySelectorAll('.track')],q=document.getElementById('q'),empty=document.getElementById('empty');
+let cat='all';
+function apply(){
+  const term=q.value.trim().toLowerCase();let shown=0;
+  tracks.forEach(t=>{
+    const okCat=cat==='all'||t.dataset.cat.split(' ').includes(cat);
+    const okQ=!term||t.textContent.toLowerCase().includes(term);
+    const ok=okCat&&okQ;t.classList.toggle('hidden',!ok);if(ok)shown++;
+  });
+  empty.style.display=shown?'none':'block';
+}
+chips.forEach(c=>c.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));c.classList.add('on');cat=c.dataset.f;apply();});
+q.addEventListener('input',apply);
+
+// roadmap tabs
+document.querySelectorAll('.road-tab').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.road-tab').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.road').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.getElementById('r-'+b.dataset.r).classList.add('on');
+});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
